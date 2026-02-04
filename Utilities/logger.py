@@ -7,6 +7,6 @@ def setup_logger(report_path):
     logging.basicConfig(
         filename=log_file,
         level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s"
+        format="%(lineno)d - %(asctime)s - %(levelname)s - %(message)s"
     )
     return logging.getLogger()
