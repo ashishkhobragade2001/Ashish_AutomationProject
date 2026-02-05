@@ -15,11 +15,12 @@ class RegistrationPage(BasePage):
         self.send_keys(RegistrationLocators.email, email_address)
         self.click(RegistrationLocators.signup_button)
 
+        self.log_info("validate text 'Enter Account Information' has been kipped")
         #validate_text = self.get_text(RegistrationLocators.validation_text)
         #assert  validate_text == "Enter Account Information"
-        print("before click on mr")
+        self.log_info("click on on mr_Title")
         self.click(RegistrationLocators.mr_title)
-        print("after click on mr ")
+
         self.send_keys(RegistrationLocators.password, password)
         self.select_dropdown(RegistrationLocators.dropdown_days, day)
         self.select_dropdown(RegistrationLocators.dropdown_months, month)
@@ -42,6 +43,7 @@ class RegistrationPage(BasePage):
         self.send_keys(RegistrationLocators.mobile_number, mobile_number)
         self.click(RegistrationLocators.create_account_button)
         time.sleep(8)
+        self.log_info("wait until Account Created! message not visible")
         # wait until Account Create message not appear
         self.wait_visible(RegistrationLocators.successfully_create_message)
         #successfully_create_message = self.get_text(RegistrationLocators.successfully_create_message)

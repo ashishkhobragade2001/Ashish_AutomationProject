@@ -1,12 +1,22 @@
 import logging
 import os
 
-def setup_logger(report_path):
-    log_file = os.path.join(report_path, "execution.log")
+class Logger:
 
-    logging.basicConfig(
-        filename=log_file,
-        level=logging.INFO,
-        format="%(lineno)d - %(asctime)s - %(levelname)s - %(message)s"
-    )
-    return logging.getLogger()
+    def __init__(self, report_path):
+        log_file = os.path.join(report_path, "execution.log")
+
+        self.logger = logging.getLogger("AutomationLogger")
+        self.logger.setLevel(logging.INFO)
+
+        # Duplicate logs se bachne ke liye
+        if not self.logger.handlers:
+            file_handler = logging.FileHandler(log_file)
+            formatter = logging.Formatter(
+                "%(lineno)d - %(asctime)s - %(levelname)s - %(message)s"
+            )
+            file_handler.setFormatter(formatter)
+            self.logger.addHandler(file_handler)
+
+    def get_logger(self):
+        return self.logger

@@ -7,9 +7,25 @@ import os, time
 
 class BasePage:
 
-    def __init__(self, driver):
-        self.logger = None
+    def __init__(self, driver, logger):
         self.driver = driver
+        self.logger = logger
+
+        # ---------- LOGGER WRAPPER METHODS ----------
+    def log_info(self, message):
+        self.logger.info(message)
+
+    def log_warning(self, message):
+        self.logger.warning(message)
+
+    def log_error(self, message):
+        self.logger.error(message)
+
+    def log_critical(self, message):
+        self.logger.critical(message)
+
+    def log_debug(self, message):
+        self.logger.debug(message)
 
     def click(self, locator):
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator)).click()

@@ -2,6 +2,7 @@ import pytest
 import os
 import datetime
 from selenium import webdriver
+from Utilities.logger import Logger
 
 def pytest_configure(config):
     timestamp = datetime.datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
@@ -35,3 +36,15 @@ def pytest_runtest_makereport(item, call):
             screenshot_dir = os.path.join(item.config._report_path, "screenshots")
             os.makedirs(screenshot_dir, exist_ok=True)
             driver.save_screenshot(os.path.join(screenshot_dir, f"{item.name}.png"))
+
+@pytest.fixture(scope="session")
+def report_path():
+    timestamp = datetime.datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+    path = os.path.join("Reports", f"report_{timestamp}")
+    os.makedirs(path, exist_ok=True)
+    return path
+
+@pytest.fixture(scope="session")
+def logger(report_path):
+    log = Logger(report_path).get_logger()
+    return log
