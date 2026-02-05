@@ -4,12 +4,12 @@ from Pages.registration_page import RegistrationPage
 
 class TestRegistration:
 
-    def test_registration(self, driver):
-        rp = RegistrationPage(driver)
+    def test_registration(self, driver, logger):
+        rp = RegistrationPage(driver, logger)
 
         rp.new_registration(
             username="ashish",
-            email_address="sara452am@outlook.com",
+            email_address="sa745am@outlook.com",
             password="saran@002",
             day="6",
             month="April",
