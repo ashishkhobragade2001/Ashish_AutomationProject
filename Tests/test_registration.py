@@ -9,7 +9,7 @@ class TestRegistration:
 
         rp.new_registration(
             username="ashish",
-            email_address="sa745am@outlook.com",
+            email_address="sa635am@outlook.com",
             password="saran@002",
             day="6",
             month="April",
