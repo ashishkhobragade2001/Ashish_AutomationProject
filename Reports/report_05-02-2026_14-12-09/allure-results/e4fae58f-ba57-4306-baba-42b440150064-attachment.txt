@@ -1,3 +1,0 @@
-INFO     AutomationLogger:base_page.py:16 validate text 'Enter Account Information' has been kipped
-INFO     AutomationLogger:base_page.py:16 click on on mr_Title
-INFO     AutomationLogger:base_page.py:16 wait until Account Created! message not visible

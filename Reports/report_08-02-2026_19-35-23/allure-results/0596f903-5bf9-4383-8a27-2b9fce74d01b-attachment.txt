@@ -1,0 +1,10 @@
+INFO     AutomationLogger:base_page.py:17 click on login button an wait for 5 second
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 product selection method start
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 before move to kis tab
+INFO     AutomationLogger:base_page.py:17 yes move to kis tab
+INFO     AutomationLogger:base_page.py:17 click on kids tab
+INFO     AutomationLogger:base_page.py:17 before click on cart tap
+INFO     AutomationLogger:base_page.py:17 yes click on cart tap

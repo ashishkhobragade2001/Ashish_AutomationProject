@@ -1,0 +1,18 @@
+INFO     AutomationLogger:base_page.py:17 click on login button an wait for 5 second
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 product selection method start
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 before move to kis tab
+INFO     AutomationLogger:base_page.py:17 yes move to kis tab
+INFO     AutomationLogger:base_page.py:17 click on kids tab
+INFO     AutomationLogger:base_page.py:17 before click on cart tap
+INFO     AutomationLogger:base_page.py:17 yes click on cart tap
+INFO     AutomationLogger:base_page.py:17 click on sign in tab and wait for 5 sec
+INFO     AutomationLogger:base_page.py:17 No ad present — continuing test
+INFO     AutomationLogger:base_page.py:17 card verification method start 
+INFO     AutomationLogger:base_page.py:17 wait  until payment page not visible
+INFO     AutomationLogger:base_page.py:17 entered name of card
+INFO     AutomationLogger:base_page.py:17 click on submit button
+INFO     AutomationLogger:base_page.py:17 No ad present — continuing test
+INFO     AutomationLogger:base_page.py:17 order verification process start

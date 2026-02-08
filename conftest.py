@@ -16,8 +16,30 @@ def pytest_configure(config):
 
 
 @pytest.fixture
-def driver(request):
-    driver = webdriver.Chrome()
+def driver():
+    options = webdriver.ChromeOptions()
+
+    # 🔥 PASSWORD POPUPS OFF
+    prefs = {
+        "credentials_enable_service": False,
+        "profile.password_manager_enabled": False,
+        "profile.password_manager_leak_detection": False
+    }
+
+    options.add_experimental_option("prefs", prefs)
+
+    # 🔥 NOTIFICATIONS OFF
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-popup-blocking")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+
+
+    # 🔥 INFO BARS OFF
+    options.add_argument("--disable-infobars")
+    driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     driver.get("https://automationexercise.com/")
     yield driver

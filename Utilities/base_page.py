@@ -1,4 +1,5 @@
-from selenium.common import TimeoutException
+from selenium.common import TimeoutException, NoSuchElementException, StaleElementReferenceException, \
+    ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
@@ -82,7 +83,6 @@ class BasePage:
         try:
             #self.logger.info(f"Performing action: {action_name}")
             element = self.driver.find_element(*locator)
-
             if action == "click":
                 element.click()
             elif action == "send_keys":
@@ -102,3 +102,56 @@ class BasePage:
             self.logger.error("Alert did not appear")
             return False
 
+
+    def close_google_vignette_ad(self, timeout=2):
+        """Universal Google ad killer – never fails test"""
+
+        self.driver.switch_to.default_content()
+
+        try:
+            iframes = self.driver.find_elements(By.TAG_NAME, "iframe")
+
+            for frame in iframes:
+                try:
+                    self.driver.switch_to.frame(frame)
+
+                    # Find ANY possible close button
+                    close_btns = self.driver.find_elements(
+                        By.XPATH,
+                        "//*[contains(@aria-label,'close') or contains(@id,'dismiss') or text()='Close' or text()='close']"
+                    )
+
+                    for btn in close_btns:
+                        try:
+                            # Try normal click
+                            if btn.is_displayed():
+                                btn.click()
+                            else:
+                                # Fallback JS click
+                                self.driver.execute_script("arguments[0].click();", btn)
+
+                            self.log_info("Ad closed")
+                            self.driver.switch_to.default_content()
+                            return
+
+                        except ElementNotInteractableException:
+                            # JS click fallback
+                            self.driver.execute_script("arguments[0].click();", btn)
+                            self.log_info("Ad closed via JS")
+                            self.driver.switch_to.default_content()
+                            return
+
+                        except Exception:
+                            continue
+
+                    self.driver.switch_to.default_content()
+
+                except Exception:
+                    self.driver.switch_to.default_content()
+                    continue
+
+        except Exception:
+            pass
+
+        self.driver.switch_to.default_content()
+        self.log_info("No ad present — continuing test")

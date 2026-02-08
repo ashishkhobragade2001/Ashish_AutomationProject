@@ -1,0 +1,18 @@
+2026-02-08 19:37:16,276 - INFO - click on login button an wait for 5 second
+2026-02-08 19:37:27,421 - INFO - Ad closed
+2026-02-08 19:37:27,425 - INFO - product selection method start
+2026-02-08 19:37:28,125 - INFO - Ad closed
+2026-02-08 19:37:31,184 - INFO - Ad closed
+2026-02-08 19:37:46,331 - INFO - before move to kis tab
+2026-02-08 19:37:46,390 - INFO - yes move to kis tab
+2026-02-08 19:37:46,672 - INFO - click on kids tab
+2026-02-08 19:38:05,057 - INFO - before click on cart tap
+2026-02-08 19:38:07,185 - INFO - yes click on cart tap
+2026-02-08 19:38:10,640 - INFO - click on sign in tab and wait for 5 sec
+2026-02-08 19:38:14,149 - INFO - No ad present — continuing test
+2026-02-08 19:38:14,150 - INFO - card verification method start 
+2026-02-08 19:38:14,181 - INFO - wait  until payment page not visible
+2026-02-08 19:38:14,328 - INFO - entered name of card
+2026-02-08 19:38:15,172 - INFO - click on submit button
+2026-02-08 19:38:20,195 - INFO - No ad present — continuing test
+2026-02-08 19:38:20,195 - INFO - order verification process start 

@@ -13,7 +13,7 @@ class Logger:
         if not self.logger.handlers:
             file_handler = logging.FileHandler(log_file)
             formatter = logging.Formatter(
-                "%(lineno)d - %(asctime)s - %(levelname)s - %(message)s"
+                "%(asctime)s - %(levelname)s - %(message)s"
             )
             file_handler.setFormatter(formatter)
             self.logger.addHandler(file_handler)
