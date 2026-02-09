@@ -1,10 +1,14 @@
 import time
+
+import pytest
+
 from Locators.products_locators import ProductLocators
 from Utilities.base_page import BasePage
 
 
 class ProductPage(BasePage):
 
+    @pytest.mark.description("Go to Home page and Sign in")
     def login_to_webpage(self, username, password):
         self.click(ProductLocators.sign_in_tap)
         self.send_keys(ProductLocators.username, username)
@@ -14,6 +18,7 @@ class ProductPage(BasePage):
         # time.sleep(5)
         self.close_google_vignette_ad()
 
+    @pytest.mark.description("Go to product tab and select the product")
     def select_products(self):
         self.log_info("product selection method start")
         self.close_google_vignette_ad()
@@ -21,7 +26,6 @@ class ProductPage(BasePage):
         self.click(ProductLocators.product_tap)
         time.sleep(2)
         self.close_google_vignette_ad()
-        time.sleep(3)
         self.log_info("before move to kis tab")
         self.scroll_to_element(ProductLocators.kids_tap)
         self.log_info("yes move to kis tab")
@@ -41,6 +45,7 @@ class ProductPage(BasePage):
         self.log_info("click on sign in tab and wait for 5 sec")
         time.sleep(3)
 
+    #@pytest.mark.description("Verify user can add product to cart")
     def card_details_page(self, name_on_card, card_number, cvv_number, expiry_month, expiry_year):
         self.close_google_vignette_ad()
         self.log_info("card verification method start ")
@@ -56,7 +61,7 @@ class ProductPage(BasePage):
         self.scroll_to_element(ProductLocators.submit_button)
         self.click(ProductLocators.submit_button)
         self.log_info("click on submit button")
-        time.sleep(5)
+        time.sleep(3)
 
     def order_verification(self):
         self.close_google_vignette_ad()
