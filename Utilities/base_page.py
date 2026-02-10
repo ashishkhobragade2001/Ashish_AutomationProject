@@ -7,12 +7,38 @@ import os, time
 
 
 class BasePage:
+    """
+        BasePage contains common reusable Selenium actions used across all Page Objects.
+
+        This class acts as a wrapper over Selenium WebDriver and provides:
+        - Element interactions (click, send keys, text fetch)
+        - Wait utilities
+        - Dropdown handling
+        - Window handling
+        - Screenshot capture
+        - Safe action wrapper with error handling
+        - Logging support
+        - Alert handling
+        - Scroll utilities
+        - Ad pop-up auto close handling
+
+        Attributes:
+            driver (WebDriver): Selenium WebDriver instance.
+            logger (Logger): Logger object used for logging test steps.
+        """
 
     def __init__(self, driver, logger):
+        """
+        Initializes BasePage with driver and logger.
+        :argument
+            driver (WebDriver): Selenium WebDriver instance.
+            logger (Logger): Logger instance for logging.
+        """
         self.driver = driver
         self.logger = logger
 
         # ---------- LOGGER WRAPPER METHODS ----------
+
     def log_info(self, message):
         self.logger.info(message)
 
@@ -29,24 +55,64 @@ class BasePage:
         self.logger.debug(message)
 
     def click(self, locator):
+        """
+        Clicks on a web element after waiting until it becomes clickable.
+        :argument
+            locator (tuple): Locator strategy in format (By, value).
+        """
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator)).click()
 
     def send_keys(self, locator, value):
+        """
+        Clicks on a web element after waiting until it becomes clickable.
+        :argument
+            locator (tuple): Locator strategy in format (By, value).
+        """
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).send_keys(value)
 
     def get_text(self, locator):
+        """
+        Retrieves visible text from a web elements
+        :argument
+            locator (tuple): Locator strategy.
+        :returns
+            str: Text of the element.
+        """
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).text
 
     def get_title(self):
+        """
+        Retrieves title text from a web elements
+        :returns
+            str: Text of the element.
+        """
         return self.driver.title
 
     def select_dropdown(self, locator, text):
+        """
+        selects an option from dropdown after waiting for visibility.
+        :argument
+            locator (tuple): Dropdown locator.
+            text (str): Visible text to select.
+            """
         Select(self.driver.find_element(*locator)).select_by_visible_text(text)
 
     def select_by_text(self, locator, text):
+        """
+        selects an option from dropdown after waiting for visibility.
+        :argument
+            locator (tuple): Dropdown locator.
+            text (str): Visible text to select.
+        """
         Select(self.driver.find_element(*locator)).select_by_visible_text(text)
 
     def select_by_value(self, locator, value):
+        """
+        selects an option from dropdown after waiting for visibility.
+        :argument
+            locator (tuple): Dropdown locator.
+            text (str): Visible text to select.
+        """
         Select(self.driver.find_element(*locator)).select_by_value(value)
 
     def select_by_index(self, locator, index):
@@ -56,6 +122,11 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
 
     def take_screenshot(self, name):
+        """
+        captures screenshot and stores it with timestamp.
+        :argument:
+            name (str): Screenshot file base name.
+         """
         path = f"Screenshots/{name}_{int(time.time())}.png"
         self.driver.save_screenshot(path)
 
@@ -65,6 +136,7 @@ class BasePage:
             if handle != parent:
                 self.driver.switch_to.window(handle)
                 break
+
     def switch_to_parent_window(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
 
@@ -97,6 +169,13 @@ class BasePage:
             raise
 
     def wait_for_alert(self, timeout=5):
+        """
+        waits for alert popup to appear.
+        :argument
+            timeout (int): Max wait time in seconds.
+        :returns
+            bool: True if alert appears, else False.
+        """
         self.logger.info("Waiting for alert to be present")
         try:
             WebDriverWait(self.driver, timeout).until(EC.alert_is_present())
@@ -104,7 +183,6 @@ class BasePage:
         except TimeoutException:
             self.logger.error("Alert did not appear")
             return False
-
 
     def close_google_vignette_ad(self, timeout=2):
         """Universal Google ad killer – never fails test"""
