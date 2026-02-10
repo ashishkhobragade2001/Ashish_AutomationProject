@@ -1,0 +1,27 @@
+INFO     AutomationLogger:test_product.py:41 Starting test: Product purchase flow
+INFO     AutomationLogger:test_product.py:45 Logging into application
+INFO     AutomationLogger:base_page.py:17 Navigating to login page
+INFO     AutomationLogger:base_page.py:17 Entering login credentials
+INFO     AutomationLogger:base_page.py:17 Clicking login button
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 Login successful
+INFO     AutomationLogger:test_product.py:51 Verifying login success
+INFO     AutomationLogger:base_page.py:17 Verifying page title: Automation Exercise
+INFO     AutomationLogger:test_product.py:54 Selecting products
+INFO     AutomationLogger:base_page.py:17 Starting product selection flow
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 Ad closed
+INFO     AutomationLogger:base_page.py:17 Navigated to Kids category
+INFO     AutomationLogger:base_page.py:17 Selected Dress category
+INFO     AutomationLogger:base_page.py:17 Product added to cart
+INFO     AutomationLogger:base_page.py:17 Proceeded to checkout
+INFO     AutomationLogger:test_product.py:57 Entering card details
+INFO     AutomationLogger:base_page.py:17 No ad present — continuing test
+INFO     AutomationLogger:base_page.py:17 Entering card details
+INFO     AutomationLogger:base_page.py:17 Payment submitted successfully
+INFO     AutomationLogger:test_product.py:66 Verifying order confirmation
+INFO     AutomationLogger:base_page.py:17 No ad present — continuing test
+INFO     AutomationLogger:base_page.py:17 Verifying order placement
+INFO     AutomationLogger:base_page.py:17 Order message displayed: ORDER PLACED!
+INFO     AutomationLogger:base_page.py:17 Invoice downloaded
+INFO     AutomationLogger:test_product.py:69 Test completed successfully

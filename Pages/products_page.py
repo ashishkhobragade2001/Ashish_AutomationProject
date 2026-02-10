@@ -1,80 +1,134 @@
-import time
+"""
+Page Module: Product Page
 
-import pytest
+Description:
+Contains all actions related to product browsing, cart handling,
+payment, and order verification for Automation Exercise website.
+
+Design Pattern: Page Object Model (POM)
+Author: Ashish Khobragade
+"""
 
 from Locators.products_locators import ProductLocators
 from Utilities.base_page import BasePage
 
 
 class ProductPage(BasePage):
+    """
+    Page Object representing product purchase workflow.
+    """
 
-    @pytest.mark.description("Go to Home page and Sign in")
-    def login_to_webpage(self, username, password):
+    def login_to_webpage(self, username: str, password: str) -> None:
+        """
+        Logs into the application using valid credentials.
+
+        :argument
+            username(str): User email
+            password(str): User password
+        :returns
+            bool: True if log in successfully
+        """
+        self.log_info("Navigating to login page")
         self.click(ProductLocators.sign_in_tap)
+
+        self.log_info("Entering login credentials")
         self.send_keys(ProductLocators.username, username)
         self.send_keys(ProductLocators.password, password)
+
+        self.log_info("Clicking login button")
         self.click(ProductLocators.login_button)
-        self.log_info("click on login button an wait for 2 second")
+
         self.wait_visible(ProductLocators.logout_button)
-        # time.sleep(5)
+        self.close_google_vignette_ad()
+        self.log_info("Login successful")
+
+    def login_verification(self) -> None:
+        """
+        Verifies successful login by checking page title.
+        """
+        expected_title = "Automation Exercise"
+        actual_title = self.get_title()
+
+        self.log_info(f"Verifying page title: {actual_title}")
+        assert actual_title == expected_title, \
+            f"Login failed. Expected title '{expected_title}', but got '{actual_title}'"
+
+    def select_products(self) -> None:
+        """
+        Selects product from Kids → Dress category and proceeds to checkout.
+        """
+        self.log_info("Starting product selection flow")
         self.close_google_vignette_ad()
 
-    def login_verification(self):
-        expected_title = self.get_title()
-        self.log_info(f"expected title is:{expected_title}")
-        actual_title = "Automation Exercise"
-        assert actual_title == expected_title, f"Login Fail Expected title:{expected_title} but got :{actual_title}"
-
-    @pytest.mark.description("Go to product tab and select the product")
-    def select_products(self):
-        self.log_info("product selection method start")
-        self.close_google_vignette_ad()
         self.wait_visible(ProductLocators.product_tap)
         self.click(ProductLocators.product_tap)
-        time.sleep(2)
         self.close_google_vignette_ad()
-        self.log_info("before move to kis tab")
         self.scroll_to_element(ProductLocators.kids_tap)
-        self.log_info("yes move to kis tab")
         self.click(ProductLocators.kids_tap)
-        self.log_info("click on kids tab")
+        self.log_info("Navigated to Kids category")
+
         self.click(ProductLocators.dress_tap)
+        self.log_info("Selected Dress category")
+
         self.scroll_to_element(ProductLocators.view_product)
         self.click(ProductLocators.view_product)
+
         self.click(ProductLocators.add_to_cart)
         self.click(ProductLocators.continue_shopping_button)
-        self.log_info("before click on cart tap")
+        self.log_info("Product added to cart")
+
         self.click(ProductLocators.cart_tap)
-        self.log_info("yes click on cart tap")
         self.click(ProductLocators.proceed_to_checkout_button)
+
         self.scroll_to_element(ProductLocators.place_order_button)
         self.click(ProductLocators.place_order_button)
-        self.log_info("click on sign in tab and wait for 5 sec")
-        time.sleep(3)
+        self.log_info("Proceeded to checkout")
 
-    #@pytest.mark.description("Verify user can add product to cart")
-    def card_details_page(self, name_on_card, card_number, cvv_number, expiry_month, expiry_year):
+    def card_details_page(self, name_on_card: str, card_number: str,
+                          cvv_number: str, expiry_month: str,
+                          expiry_year: str) -> None:
+        """
+        Enters payment card details and submits order.
+
+         :arg
+             name_on_card(str): cardholder name
+             card_number(str): card number
+             cvv_number(int): CVV number
+             expiry_month(int): Expiry Month
+             expiry_year(int): Expiry Year
+        :returns
+            bool: True if payment successfully
+
+        """
         self.close_google_vignette_ad()
-        self.log_info("card verification method start ")
+        self.log_info("Entering card details")
+
         self.wait_visible(ProductLocators.name_on_card)
-        self.log_info("wait  until payment page not visible")
         self.send_keys(ProductLocators.name_on_card, name_on_card)
-        self.log_info("entered name of card")
         self.send_keys(ProductLocators.card_number, card_number)
+
         self.scroll_to_element(ProductLocators.cvv)
         self.send_keys(ProductLocators.cvv, cvv_number)
         self.send_keys(ProductLocators.expiry_month, expiry_month)
         self.send_keys(ProductLocators.expiry_year, expiry_year)
+
         self.scroll_to_element(ProductLocators.submit_button)
         self.click(ProductLocators.submit_button)
-        self.log_info("click on submit button")
-        time.sleep(3)
 
-    def order_verification(self):
+        self.log_info("Payment submitted successfully")
+
+    def order_verification(self) -> None:
+        """
+        Verifies order success message and downloads invoice.
+        """
         self.close_google_vignette_ad()
-        self.log_info("order verification process start ")
+        self.log_info("Verifying order placement")
+
         success_message = self.get_text(ProductLocators.order_place_verification_text)
-        self.log_info(f"success message: {success_message}")
-        assert success_message == "ORDER PLACED!"
+        self.log_info(f"Order message displayed: {success_message}")
+
+        assert success_message == "ORDER PLACED!", \
+            f"Order verification failed. Expected 'ORDER PLACED!' but got '{success_message}'"
+
         self.click(ProductLocators.download_invoice)
-        self.log_info("download invoice")
+        self.log_info("Invoice downloaded")

@@ -1,3 +1,0 @@
-INFO     AutomationLogger:base_page.py:17 click on login button an wait for 2 second
-INFO     AutomationLogger:base_page.py:17 No ad present — continuing test
-INFO     AutomationLogger:base_page.py:17 expected title is:Automation Exercise - Signup / Login
