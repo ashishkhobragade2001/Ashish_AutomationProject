@@ -37,6 +37,9 @@ class BasePage:
     def get_text(self, locator):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).text
 
+    def get_title(self):
+        return self.driver.title
+
     def select_dropdown(self, locator, text):
         Select(self.driver.find_element(*locator)).select_by_visible_text(text)
 

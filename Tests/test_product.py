@@ -5,7 +5,8 @@ class TestProducts:
 
     def test_products_add_to_carts(self, driver, logger):
         pp = ProductPage(driver, logger)
-        pp.login_to_webpage(username="ashish@outlook.com", password="00ashish123")
+        pp.login_to_webpage(username="ashish@outlook.com", password="ashish123")
+        pp.login_verification()
         pp.select_products()
         pp.card_details_page(
             name_on_card="Neha Seth",

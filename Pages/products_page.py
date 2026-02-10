@@ -14,9 +14,16 @@ class ProductPage(BasePage):
         self.send_keys(ProductLocators.username, username)
         self.send_keys(ProductLocators.password, password)
         self.click(ProductLocators.login_button)
-        self.log_info("click on login button an wait for 5 second")
+        self.log_info("click on login button an wait for 2 second")
+        self.wait_visible(ProductLocators.logout_button)
         # time.sleep(5)
         self.close_google_vignette_ad()
+
+    def login_verification(self):
+        expected_title = self.get_title()
+        self.log_info(f"expected title is:{expected_title}")
+        actual_title = "Automation Exercise"
+        assert actual_title == expected_title, f"Login Fail Expected title:{expected_title} but got :{actual_title}"
 
     @pytest.mark.description("Go to product tab and select the product")
     def select_products(self):

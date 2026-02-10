@@ -1,5 +1,6 @@
 import pytest
 import os
+import base64
 import allure
 from datetime import datetime
 from selenium import webdriver
@@ -61,6 +62,7 @@ def logger(request):
 
 
 # 📸 SCREENSHOT + ATTACH IN HTML
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
@@ -73,14 +75,19 @@ def pytest_runtest_makereport(item, call):
             file_name = f"{item.name}.png"
             base_dir = item.config.base_report_dir
             screenshot_path = os.path.join(base_dir, "screenshots", file_name)
+
+            # Save screenshot file (for folder record)
             driver.save_screenshot(screenshot_path)
 
-            # 📌 Attach to HTML Report
+            # ✅ Convert image to base64 (THIS FIXES HTML)
+            with open(screenshot_path, "rb") as image_file:
+                encoded_string = base64.b64encode(image_file.read()).decode()
+
             extra = getattr(report, "extra", [])
-            extra.append(extras.image(screenshot_path))
+            extra.append(extras.image(encoded_string, mime_type="image/png"))
             report.extra = extra
 
-            # 📌 Attach to Allure Report
+            # ✅ Allure attach
             allure.attach.file(
                 screenshot_path,
                 name="Failure Screenshot",
