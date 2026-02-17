@@ -9,6 +9,49 @@ class RegistrationPage(BasePage):
                          month, year, first_name, last_name, company,
                          address_1, address_2, address_3, country_name,
                          state_name, city_name, zip_code, mobile_number):
+        """
+        Create a new user account by completing the registration form.
+
+        This method performs end-to-end registration including account
+        credentials, personal information, address details, and final
+        account creation confirmation.
+
+                Args:
+                    username (str): Username for the new account.
+                    email_address (str): Email address for registration.
+                    password (str): Account password.
+                    day (str | int): Day of birth (1–31).
+                    month (str): Month of birth (e.g., "January").
+                    year (str | int): Year of birth.
+                    first_name (str): User's first name.
+                    last_name (str): User's last name.
+                    company (str): Company name.
+                    address_1 (str): Primary address line.
+                    address_2 (str): Secondary address line.
+                    address_3 (str): Additional address information.
+                    country_name (str): Country name selected from dropdown.
+                    state_name (str): State name.
+                    city_name (str): City name.
+                    zip_code (str): Postal/ZIP code.
+                    mobile_number (str): User's mobile number.
+
+                Returns:
+                    bool: True if account creation is successful and logout is verified,
+                    otherwise False.
+
+                Workflow:
+                    1. Navigate to sign-up page.
+                    2. Enter basic account credentials.
+                    3. Fill date of birth and title.
+                    4. Provide personal and address information.
+                    5. Submit a registration form.
+                    6. Wait for "Account Created" confirmation.
+                    7. Continue and verify logout option is visible.
+
+                Raises:
+                    Exception: If any element interaction fails or expected page
+                    elements are not visible within the wait time.
+                """
         self.click(RegistrationLocators.signin_tap)
 
         self.send_keys(RegistrationLocators.name, username)
@@ -44,12 +87,12 @@ class RegistrationPage(BasePage):
         self.click(RegistrationLocators.create_account_button)
         time.sleep(8)
         self.log_info("wait until Account Created! message not visible")
-        # wait until Account Create message not appear
+
         self.wait_visible(RegistrationLocators.successfully_create_message)
         #successfully_create_message = self.get_text(RegistrationLocators.successfully_create_message)
         #assert successfully_create_message == "Account Created!"
 
         self.click(RegistrationLocators.continue_button)
         time.sleep(5)
-        self.wait_clickable(RegistrationLocators.varification_Logout_TAP)
-        self.click(RegistrationLocators.varification_Logout_TAP)
+        self.wait_clickable(RegistrationLocators.verification_Logout_TAP)
+        self.click(RegistrationLocators.verification_Logout_TAP)

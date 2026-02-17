@@ -1,0 +1,47 @@
+INFO     AutomationLogger:test_product.py:41 Starting test: Product purchase flow
+INFO     AutomationLogger:test_product.py:45 Logging into application
+INFO     AutomationLogger:base_page.py:43 Navigating to login page
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]')
+INFO     AutomationLogger:base_page.py:43 Entering login credentials
+INFO     AutomationLogger:base_page.py:43 Entering text: ashish@outlook.com in to element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[2]')
+INFO     AutomationLogger:base_page.py:43 Entering text: ashish123 in to element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[3]')
+INFO     AutomationLogger:base_page.py:43 Clicking login button
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/button[1]')
+INFO     AutomationLogger:base_page.py:43 Ad closed
+INFO     AutomationLogger:base_page.py:43 Login successful
+INFO     AutomationLogger:test_product.py:51 Verifying login success
+INFO     AutomationLogger:base_page.py:43 Verifying page title: Automation Exercise
+INFO     AutomationLogger:test_product.py:54 Selecting products
+INFO     AutomationLogger:base_page.py:43 Starting product selection flow
+INFO     AutomationLogger:base_page.py:43 Ad closed
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]')
+INFO     AutomationLogger:base_page.py:43 Ad closed
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h4[1]/a[1]')
+INFO     AutomationLogger:base_page.py:43 Navigated to Kids category
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]')
+INFO     AutomationLogger:base_page.py:43 Selected Dress category
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/a[1]')
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/button[1]')
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[1]')
+INFO     AutomationLogger:base_page.py:43 Product added to cart
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]')
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/section[1]/div[1]/div[1]/div[1]/a[1]')
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[7]/a[1]')
+INFO     AutomationLogger:base_page.py:43 Proceeded to checkout
+INFO     AutomationLogger:test_product.py:57 Entering card details
+INFO     AutomationLogger:base_page.py:43 No ad present — continuing test
+INFO     AutomationLogger:base_page.py:43 Entering card details
+INFO     AutomationLogger:base_page.py:43 Entering text: Neha Seth in to element: ('xpath', "//input[@name='name_on_card']")
+INFO     AutomationLogger:base_page.py:43 Entering text: 111144443333 in to element: ('xpath', "//input[@name='card_number']")
+INFO     AutomationLogger:base_page.py:43 Entering text: 123 in to element: ('xpath', "//input[@name='cvc']")
+INFO     AutomationLogger:base_page.py:43 Entering text: 12 in to element: ('xpath', "//input[@name='expiry_month']")
+INFO     AutomationLogger:base_page.py:43 Entering text: 2032 in to element: ('xpath', "//input[@name='expiry_year']")
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', "//button[@id='submit']")
+INFO     AutomationLogger:base_page.py:43 Payment submitted successfully
+INFO     AutomationLogger:test_product.py:66 Verifying order confirmation
+INFO     AutomationLogger:base_page.py:43 No ad present — continuing test
+INFO     AutomationLogger:base_page.py:43 Verifying order placement
+INFO     AutomationLogger:base_page.py:43 Order message displayed: ORDER PLACED!
+INFO     AutomationLogger:base_page.py:43 clicking on element: ('xpath', '/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/a[1]')
+INFO     AutomationLogger:base_page.py:43 Invoice downloaded
+INFO     AutomationLogger:test_product.py:69 Test completed successfully

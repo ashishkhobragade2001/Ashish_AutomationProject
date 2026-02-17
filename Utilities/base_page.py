@@ -3,7 +3,7 @@ from selenium.common import TimeoutException, NoSuchElementException, StaleEleme
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
-import os, time
+import time
 
 
 class BasePage:
@@ -60,6 +60,7 @@ class BasePage:
         :argument
             locator (tuple): Locator strategy in format (By, value).
         """
+        self.log_info(f"clicking on element: {locator}")
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator)).click()
 
     def send_keys(self, locator, value):
@@ -68,6 +69,7 @@ class BasePage:
         :argument
             locator (tuple): Locator strategy in format (By, value).
         """
+        self.log_info(f"Entering text: {value} in to element: {locator}")
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).send_keys(value)
 
     def get_text(self, locator):
@@ -95,6 +97,7 @@ class BasePage:
             locator (tuple): Dropdown locator.
             text (str): Visible text to select.
             """
+        self.log_info(f"selecting {text} from dropdown: {locator}")
         Select(self.driver.find_element(*locator)).select_by_visible_text(text)
 
     def select_by_text(self, locator, text):
@@ -104,6 +107,7 @@ class BasePage:
             locator (tuple): Dropdown locator.
             text (str): Visible text to select.
         """
+        self.log_info(f"selecting {text} from dropdown: {locator}")
         Select(self.driver.find_element(*locator)).select_by_visible_text(text)
 
     def select_by_value(self, locator, value):
@@ -113,9 +117,11 @@ class BasePage:
             locator (tuple): Dropdown locator.
             text (str): Visible text to select.
         """
+        self.log_info(f"selecting value{value} from dropdown: {locator}")
         Select(self.driver.find_element(*locator)).select_by_value(value)
 
     def select_by_index(self, locator, index):
+        self.log_info(f"selecting index: {index} from dropdown: {locator}")
         Select(self.driver.find_element(*locator)).select_by_index(index)
 
     def wait_visible(self, locator):
@@ -129,6 +135,7 @@ class BasePage:
          """
         path = f"Screenshots/{name}_{int(time.time())}.png"
         self.driver.save_screenshot(path)
+        self.log_info(f"take a screenshot and save to: {path}")
 
     def switch_to_new_window(self):
         parent = self.driver.current_window_handle
@@ -139,6 +146,7 @@ class BasePage:
 
     def switch_to_parent_window(self):
         self.driver.switch_to.window(self.driver.window_handles[0])
+        self.log_info(f"switch to parent window")
 
     def scroll_to_element(self, locator):
         element = self.driver.find_element(*locator)
@@ -156,7 +164,6 @@ class BasePage:
 
     def safe_action(self, action_name, locator, action, value=None):
         try:
-            #self.logger.info(f"Performing action: {action_name}")
             element = self.driver.find_element(*locator)
             if action == "click":
                 element.click()
@@ -164,7 +171,6 @@ class BasePage:
                 element.send_keys(value)
 
         except Exception as e:
-            #self.logger.error(f"Error in {action_name}: {e}")
             self.take_screenshot(action_name)
             raise
 
