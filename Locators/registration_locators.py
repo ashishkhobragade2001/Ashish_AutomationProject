@@ -14,10 +14,10 @@ class RegistrationLocators:
         user actions during automation of the New User Registration workflow.
         """
     # ---- sign in webpage
-    signin_tap = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
-    name = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[3]/div[1]/form[1]/input[2]")
-    email = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[3]/div[1]/form[1]/input[3]")
-    signup_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[3]/div[1]/form[1]/button[1]")
+    signin_tap = (By.XPATH, "//li[contains(., ' Signup / Login')]")
+    name = (By.XPATH, "//input[@data-qa='signup-name']")
+    email = (By.XPATH, "//input[@data-qa='signup-email']")
+    signup_button = (By.XPATH, "//button[@data-qa='signup-button']")
 
     # user information
     validation_text = (By.XPATH, "//b[text()='Enter Account Information']")

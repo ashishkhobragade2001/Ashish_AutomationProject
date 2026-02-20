@@ -5,10 +5,10 @@ from Utilities.base_page import BasePage
 
 class RegistrationPage(BasePage):
 
-    def new_registration(self, username, email_address, password, day,
+    def new_registration(self, signup_username, signup_email_address, password, day,
                          month, year, first_name, last_name, company,
                          address_1, address_2, address_3, country_name,
-                         state_name, city_name, zip_code, mobile_number):
+                         state_name, city_name, zip_code, mobile_number, ):
         """
         Create a new user account by completing the registration form.
 
@@ -17,8 +17,8 @@ class RegistrationPage(BasePage):
         account creation confirmation.
 
                 Args:
-                    username (str): Username for the new account.
-                    email_address (str): Email address for registration.
+                    signup_username (str): Username for the new account.
+                    signup_email_address (str): Email address for registration.
                     password (str): Account password.
                     day (str | int): Day of birth (1–31).
                     month (str): Month of birth (e.g., "January").
@@ -51,11 +51,12 @@ class RegistrationPage(BasePage):
                 Raises:
                     Exception: If any element interaction fails or expected page
                     elements are not visible within the wait time.
+
                 """
         self.click(RegistrationLocators.signin_tap)
 
-        self.send_keys(RegistrationLocators.name, username)
-        self.send_keys(RegistrationLocators.email, email_address)
+        self.send_keys(RegistrationLocators.name, signup_username)
+        self.send_keys(RegistrationLocators.email, signup_email_address)
         self.click(RegistrationLocators.signup_button)
 
         self.log_info("validate text 'Enter Account Information' has been kipped")
