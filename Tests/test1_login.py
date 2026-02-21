@@ -2,14 +2,14 @@ import pytest
 from Pages.login_page import LoginPage
 from Utilities.excel_reader import get_login_data
 
-"""@pytest.mark.parametrize("email,password", [
+"""@pytest.mark.parametrize("EMAIL_INPUT,password", [
     ("test1@mail.com", "12345"),
     ("test2@mail.com", "wrongpass")
 ])
-def test_login(driver, email, password):
+def test_login(driver, EMAIL_INPUT, password):
     lp = LoginPage(driver)
     lp.open_login()
-    lp.login(email, password)"""
+    lp.login(EMAIL_INPUT, password)"""
 
 
 @pytest.mark.parametrize("username, password, expected_result", get_login_data())

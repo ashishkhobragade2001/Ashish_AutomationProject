@@ -1,0 +1,60 @@
+2026-02-21 20:26:28,248 - INFO - username: ashley19
+2026-02-21 20:26:28,250 - INFO - signup_email_address: hunter94@outlook
+2026-02-21 20:26:28,250 - INFO - clicking on element: sign in tab
+2026-02-21 20:26:32,153 - INFO - Entering text: ashley19 in to element: 
+2026-02-21 20:26:32,726 - INFO - Entering text: hunter94@outlook in to element: 
+2026-02-21 20:26:33,073 - INFO - clicking on element: 
+2026-02-21 20:26:37,495 - INFO - clicking on element: MR_TITLE_BUTTON
+2026-02-21 20:26:42,816 - INFO - Entering text: saran@002 in to element: password
+2026-02-21 20:26:43,224 - INFO - move to element: dropdown days
+2026-02-21 20:26:43,366 - INFO - selecting value: 6 from dropdown: dropdown days
+2026-02-21 20:26:43,815 - INFO - selecting: April from dropdown:  DD month
+2026-02-21 20:26:44,148 - INFO - selecting value: 1994 from dropdown: DD year
+2026-02-21 20:26:44,340 - INFO - clicking on element: 
+2026-02-21 20:26:44,604 - INFO - clicking on element: 
+2026-02-21 20:26:44,786 - INFO - move to element: 
+2026-02-21 20:26:44,815 - INFO - Entering text: sahar in to element: 
+2026-02-21 20:26:44,968 - INFO - Entering text: dube in to element: 
+2026-02-21 20:26:45,142 - INFO - Entering text: Mumbai in to element: 
+2026-02-21 20:26:45,290 - INFO - Entering text: panchashl bagar in to element: 
+2026-02-21 20:26:45,470 - INFO - Entering text: sane gurugi in to element: 
+2026-02-21 20:26:45,655 - INFO - Entering text: bhag 2 in to element: 
+2026-02-21 20:26:45,854 - INFO - move to element: 
+2026-02-21 20:26:45,903 - INFO - selecting: India from dropdown: 
+2026-02-21 20:26:46,027 - INFO - Entering text: Maharashtra in to element: 
+2026-02-21 20:26:46,169 - INFO - Entering text: Yavatmal in to element: 
+2026-02-21 20:26:46,433 - INFO - Entering text: 445563 in to element: 
+2026-02-21 20:26:46,654 - INFO - move to element: 
+2026-02-21 20:26:46,698 - INFO - Entering text: 9988774455 in to element: 
+2026-02-21 20:26:47,090 - INFO - clicking on element: 
+2026-02-21 20:26:54,846 - INFO - wait until element not visible:  
+2026-02-21 20:27:06,752 - INFO - username: brentreed
+2026-02-21 20:27:06,752 - INFO - signup_email_address: nross@outlook
+2026-02-21 20:27:06,752 - INFO - clicking on element: sign in tab
+2026-02-21 20:27:19,375 - INFO - Entering text: brentreed in to element: 
+2026-02-21 20:27:23,204 - INFO - Entering text: nross@outlook in to element: 
+2026-02-21 20:27:23,400 - INFO - clicking on element: 
+2026-02-21 20:27:32,266 - INFO - clicking on element: MR_TITLE_BUTTON
+2026-02-21 20:27:32,920 - INFO - Entering text: sahu@78 in to element: password
+2026-02-21 20:27:33,165 - INFO - move to element: dropdown days
+2026-02-21 20:27:33,290 - INFO - selecting value: 12 from dropdown: dropdown days
+2026-02-21 20:27:33,811 - INFO - selecting: May from dropdown:  DD month
+2026-02-21 20:27:34,221 - INFO - selecting value: 1985 from dropdown: DD year
+2026-02-21 20:27:34,872 - INFO - clicking on element: 
+2026-02-21 20:27:35,136 - INFO - clicking on element: 
+2026-02-21 20:27:35,340 - INFO - move to element: 
+2026-02-21 20:27:35,385 - INFO - Entering text: sahil in to element: 
+2026-02-21 20:27:35,632 - INFO - Entering text: shaikh in to element: 
+2026-02-21 20:27:35,787 - INFO - Entering text: tata in to element: 
+2026-02-21 20:27:36,065 - INFO - Entering text: pune in to element: 
+2026-02-21 20:27:36,272 - INFO - Entering text: chichwad in to element: 
+2026-02-21 20:27:36,553 - INFO - Entering text: hinjawadi in to element: 
+2026-02-21 20:27:36,933 - INFO - move to element: 
+2026-02-21 20:27:37,031 - INFO - selecting: India from dropdown: 
+2026-02-21 20:27:37,184 - INFO - Entering text: panjab in to element: 
+2026-02-21 20:27:37,299 - INFO - Entering text: luhiyana in to element: 
+2026-02-21 20:27:37,532 - INFO - Entering text: 448552 in to element: 
+2026-02-21 20:27:37,717 - INFO - move to element: 
+2026-02-21 20:27:37,754 - INFO - Entering text: 8575 in to element: 
+2026-02-21 20:27:37,916 - INFO - clicking on element: 
+2026-02-21 20:27:45,902 - INFO - wait until element not visible:  

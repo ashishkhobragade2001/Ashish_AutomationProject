@@ -20,8 +20,8 @@ class TestRegistration:
 
         Steps:
             1. Open the registration page.
-            2. Enter account credentials (username, email, password).
-            3. Validate username and email is unique.
+            2. Enter account credentials (username, EMAIL_INPUT, password).
+            3. Validate username and EMAIL_INPUT is unique.
             4. Enter personal details.
             5. Submit the registration form.
             6. Validate registration is successful or not.
@@ -35,7 +35,7 @@ class TestRegistration:
         # ---- New user Sign up
         rp.new_user_signup(data)
         actual_result = "pass" if rp.is_username_email_unique() else "fail"
-        assert actual_result == "pass", "username or email address not unique."
+        assert actual_result == "pass", "username or EMAIL_INPUT address not unique."
 
         # ---- New Registration page (Personal information form)
         rp.new_registration(data)

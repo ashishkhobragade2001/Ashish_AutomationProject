@@ -37,11 +37,11 @@ class ProductLocators:
     place_order_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[7]/a[1]")
 
     # 💳 Payment Details
-    name_on_card = (By.XPATH, "//input[@name='name_on_card']")
-    card_number = (By.XPATH, "//input[@name='card_number']")
-    cvv = (By.XPATH, "//input[@name='cvc']")
-    expiry_month = (By.XPATH, "//input[@name='expiry_month']")
-    expiry_year = (By.XPATH, "//input[@name='expiry_year']")
+    name_on_card = (By.XPATH, "//input[@USERNAME_INPUT='name_on_card']")
+    card_number = (By.XPATH, "//input[@USERNAME_INPUT='card_number']")
+    cvv = (By.XPATH, "//input[@USERNAME_INPUT='cvc']")
+    expiry_month = (By.XPATH, "//input[@USERNAME_INPUT='expiry_month']")
+    expiry_year = (By.XPATH, "//input[@USERNAME_INPUT='expiry_year']")
     submit_button = (By.XPATH, "//button[@id='submit']")
 
     # ✅ Order Confirmation

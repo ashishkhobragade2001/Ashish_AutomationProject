@@ -54,22 +54,22 @@ class BasePage:
     def log_debug(self, message):
         self.logger.debug(message)
 
-    def click(self, locator):
+    def click(self, locator, locator_name=""):
         """
         Clicks on a web element after waiting until it becomes clickable.
         :argument
             locator (tuple): Locator strategy in format (By, value).
         """
-        self.log_info(f"clicking on element: {locator}")
+        self.log_info(f"clicking on element: {locator_name}")
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator)).click()
 
-    def send_keys(self, locator, value):
+    def send_keys(self, locator, value, locator_name=""):
         """
         Clicks on a web element after waiting until it becomes clickable.
         :argument
             locator (tuple): Locator strategy in format (By, value).
         """
-        self.log_info(f"Entering text: {value} in to element: {locator}")
+        self.log_info(f"Entering text: {value} in to element: {locator_name}")
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator)).send_keys(value)
 
     def get_text(self, locator):
@@ -90,38 +90,39 @@ class BasePage:
         """
         return self.driver.title
 
-    def select_by_text(self, locator, text):
+    def select_by_text(self, locator, text, locator_name=""):
         """
         selects an option from dropdown after waiting for visibility.
         :argument
             locator (tuple): Dropdown locator.
             text (str): Visible text to select.
         """
-        self.log_info(f"selecting {text} from dropdown: {locator}")
+        self.log_info(f"selecting: {text} from dropdown: {locator_name}")
         Select(self.driver.find_element(*locator)).select_by_visible_text(str(text))
 
-    def select_by_value(self, locator, value):
+    def select_by_value(self, locator, value, locator_name=""):
         """
         selects an option from dropdown after waiting for visibility.
         :argument
             locator (tuple): Dropdown locator.
             text (str): Visible text to select.
         """
-        self.log_info(f"selecting value{value} from dropdown: {locator}")
+        self.log_info(f"selecting value: {value} from dropdown: {locator_name}")
         Select(self.driver.find_element(*locator)).select_by_value(str(value))
 
-    def select_by_index(self, locator, index):
-        self.log_info(f"selecting index: {index} from dropdown: {locator}")
+    def select_by_index(self, locator, index, locator_name=""):
+        self.log_info(f"selecting index: {index} from dropdown: {locator_name}")
         Select(self.driver.find_element(*locator)).select_by_index(index)
 
-    def wait_visible(self, locator):
+    def wait_visible(self, locator, locator_name=""):
+        self.log_info(f"wait until element not visible: {locator_name} ")
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
 
     def take_screenshot(self, name):
         """
         captures screenshot and stores it with timestamp.
         :argument:
-            name (str): Screenshot file base name.
+            USERNAME_INPUT (str): Screenshot file base USERNAME_INPUT.
          """
         path = f"Screenshots/{name}_{int(time.time())}.png"
         self.driver.save_screenshot(path)
@@ -138,11 +139,13 @@ class BasePage:
         self.driver.switch_to.window(self.driver.window_handles[0])
         self.log_info(f"switch to parent window")
 
-    def scroll_to_element(self, locator):
+    def scroll_to_element(self, locator, locator_name=""):
+        self.log_info(f"move to element: {locator_name}")
         element = self.driver.find_element(*locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
-    def wait_clickable(self, locator):
+    def wait_clickable(self, locator, locator_name=""):
+        self.log_info(f"wait until element not clickable: {locator_name}")
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator))
 
     def is_element_visible(self, locator):

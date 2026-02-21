@@ -1,0 +1,30 @@
+INFO     AutomationLogger:base_page.py:43 username: ashley19
+INFO     AutomationLogger:base_page.py:43 signup_email_address: hunter94@outlook
+INFO     AutomationLogger:base_page.py:43 clicking on element: sign in tab
+INFO     AutomationLogger:base_page.py:43 Entering text: ashley19 in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: hunter94@outlook in to element: 
+INFO     AutomationLogger:base_page.py:43 clicking on element: 
+INFO     AutomationLogger:base_page.py:43 clicking on element: MR_TITLE_BUTTON
+INFO     AutomationLogger:base_page.py:43 Entering text: saran@002 in to element: password
+INFO     AutomationLogger:base_page.py:43 move to element: dropdown days
+INFO     AutomationLogger:base_page.py:43 selecting value: 6 from dropdown: dropdown days
+INFO     AutomationLogger:base_page.py:43 selecting: April from dropdown:  DD month
+INFO     AutomationLogger:base_page.py:43 selecting value: 1994 from dropdown: DD year
+INFO     AutomationLogger:base_page.py:43 clicking on element: 
+INFO     AutomationLogger:base_page.py:43 clicking on element: 
+INFO     AutomationLogger:base_page.py:43 move to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: sahar in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: dube in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: Mumbai in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: panchashl bagar in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: sane gurugi in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: bhag 2 in to element: 
+INFO     AutomationLogger:base_page.py:43 move to element: 
+INFO     AutomationLogger:base_page.py:43 selecting: India from dropdown: 
+INFO     AutomationLogger:base_page.py:43 Entering text: Maharashtra in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: Yavatmal in to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: 445563 in to element: 
+INFO     AutomationLogger:base_page.py:43 move to element: 
+INFO     AutomationLogger:base_page.py:43 Entering text: 9988774455 in to element: 
+INFO     AutomationLogger:base_page.py:43 clicking on element: 
+INFO     AutomationLogger:base_page.py:43 wait until element not visible:

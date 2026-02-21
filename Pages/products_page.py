@@ -23,7 +23,7 @@ class ProductPage(BasePage):
         Logs into the application using valid credentials.
 
         :argument
-            username(str): User email
+            username(str): User EMAIL_INPUT
             password(str): User password
         :returns
             bool: True if log in successfully
@@ -91,7 +91,7 @@ class ProductPage(BasePage):
         Enters payment card details and submits order.
 
          :arg
-             name_on_card(str): cardholder name
+             name_on_card(str): cardholder USERNAME_INPUT
              card_number(str): card number
              cvv_number(int): CVV number
              expiry_month(int): Expiry Month
