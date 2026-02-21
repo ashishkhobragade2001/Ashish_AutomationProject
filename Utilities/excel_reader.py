@@ -10,4 +10,4 @@ def get_login_data():
 def get_registration_data():
     filepath = "C://Ashish_Automation//TestData//registration_data.xlsx"
     df = pd.read_excel(filepath)
-    return df.values.tolist()
+    return df.to_dict(orient="records")

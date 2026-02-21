@@ -90,16 +90,6 @@ class BasePage:
         """
         return self.driver.title
 
-    def select_dropdown(self, locator, text):
-        """
-        selects an option from dropdown after waiting for visibility.
-        :argument
-            locator (tuple): Dropdown locator.
-            text (str): Visible text to select.
-            """
-        self.log_info(f"selecting {text} from dropdown: {locator}")
-        Select(self.driver.find_element(*locator)).select_by_visible_text(text)
-
     def select_by_text(self, locator, text):
         """
         selects an option from dropdown after waiting for visibility.
@@ -108,7 +98,7 @@ class BasePage:
             text (str): Visible text to select.
         """
         self.log_info(f"selecting {text} from dropdown: {locator}")
-        Select(self.driver.find_element(*locator)).select_by_visible_text(text)
+        Select(self.driver.find_element(*locator)).select_by_visible_text(str(text))
 
     def select_by_value(self, locator, value):
         """
@@ -118,7 +108,7 @@ class BasePage:
             text (str): Visible text to select.
         """
         self.log_info(f"selecting value{value} from dropdown: {locator}")
-        Select(self.driver.find_element(*locator)).select_by_value(value)
+        Select(self.driver.find_element(*locator)).select_by_value(str(value))
 
     def select_by_index(self, locator, index):
         self.log_info(f"selecting index: {index} from dropdown: {locator}")

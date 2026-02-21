@@ -46,6 +46,7 @@ class RegistrationLocators:
     create_account_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/button[1]")
 
     successfully_create_message = (By.XPATH, "//b[text()='Account Created!']")
+    enter_account_creation_message = (By.XPATH, "//b[contains(text(), 'Enter Account Information')]")
     continue_button = (By.XPATH, "//a[@class ='btn btn-primary']")
 
     verification_Logout_TAP = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
