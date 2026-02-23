@@ -17,33 +17,33 @@ class ProductLocators:
     """
 
     # 🔐 Authentication
-    sign_in_tap = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
-    username = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[2]")
-    password = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[3]")
-    login_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/button[1]")
-    logout_button = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
+    SIGN_IN_TAB = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
+    USER_NAME_INPUT = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[2]")
+    PASSWORD_INPUT = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[3]")
+    LOGIN_BUTTON = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/div[1]/form[1]/button[1]")
+    LOGOUT_BUTTON = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
 
     # 🛍 Product Navigation
-    product_tap = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]")
-    kids_tap = (By.XPATH, "/html[1]/body[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h4[1]/a[1]")
-    dress_tap = (By.XPATH, "/html[1]/body[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]")
-    view_product = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/a[1]")
+    PRODUCT_TAB = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]")
+    KIDS_TAB = (By.XPATH, "/html[1]/body[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h4[1]/a[1]")
+    DRESS_TAB = (By.XPATH, "/html[1]/body[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/a[1]")
+    VIEW_PRODUCT_TAB = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[2]/ul[1]/li[1]/a[1]")
 
     # 🛒 Cart Actions
-    add_to_cart = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/button[1]")
-    continue_shopping_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[1]")
-    cart_tap = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]")
-    proceed_to_checkout_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/section[1]/div[1]/div[1]/div[1]/a[1]")
-    place_order_button = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[7]/a[1]")
+    ADD_TO_CART_TAB = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/span[1]/button[1]")
+    CONTINUE_SHOPING_BUTTON = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[1]")
+    CART_TAB = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]")
+    PROCEED_TO_CHECKOUT_BUTTON = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/section[1]/div[1]/div[1]/div[1]/a[1]")
+    PLACE_ORDER_BUTTON = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[7]/a[1]")
 
     # 💳 Payment Details
-    name_on_card = (By.XPATH, "//input[@USERNAME_INPUT='name_on_card']")
-    card_number = (By.XPATH, "//input[@USERNAME_INPUT='card_number']")
-    cvv = (By.XPATH, "//input[@USERNAME_INPUT='cvc']")
-    expiry_month = (By.XPATH, "//input[@USERNAME_INPUT='expiry_month']")
-    expiry_year = (By.XPATH, "//input[@USERNAME_INPUT='expiry_year']")
-    submit_button = (By.XPATH, "//button[@id='submit']")
+    NAME_ON_CARD_INPUT = (By.XPATH, "//input[@USERNAME_INPUT='name_on_card']")
+    CARD_NUMBER_INPUT = (By.XPATH, "//input[@USERNAME_INPUT='card_number']")
+    CVV_INPUT = (By.XPATH, "//input[@USERNAME_INPUT='cvc']")
+    EXPIRY_MONTH_INPUT = (By.XPATH, "//input[@USERNAME_INPUT='expiry_month']")
+    EXPIRY_YEAR_INPUT = (By.XPATH, "//input[@USERNAME_INPUT='expiry_year']")
+    SUBMIT_BUTTON_INPUT = (By.XPATH, "//button[@id='submit']")
 
     # ✅ Order Confirmation
-    order_place_verification_text = (By.XPATH, "//b[text()='Order Placed!']")
-    download_invoice = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/a[1]")
+    ORDER_TEXT_VERIFICATION_TEXT = (By.XPATH, "//b[text()='Order Placed!']")
+    DOWNLOAD_INVOICE_BUTTON = (By.XPATH, "/html[1]/body[1]/section[1]/div[1]/div[1]/div[1]/a[1]")

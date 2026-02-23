@@ -1,0 +1,58 @@
+2026-02-23 17:16:19,353 - INFO - username: torresaaron
+2026-02-23 17:16:19,355 - INFO - signup_email_address: tiffany12@outlook
+2026-02-23 17:16:19,355 - INFO - clicking on element: sign in tab
+2026-02-23 17:16:26,935 - INFO - Entering text: torresaaron in to element: 
+2026-02-23 17:16:27,817 - INFO - Entering text: tiffany12@outlook in to element: 
+2026-02-23 17:16:28,068 - INFO - clicking on element: 
+2026-02-23 17:16:32,729 - INFO - clicking on element: MR_TITLE_BUTTON
+2026-02-23 17:16:33,038 - INFO - Entering text: Ash@654 in to element: password
+2026-02-23 17:16:33,188 - INFO - move to element: dropdown days
+2026-02-23 17:16:33,225 - INFO - selecting value: 6 from dropdown: dropdown days
+2026-02-23 17:16:33,476 - INFO - selecting: April from dropdown:  DD month
+2026-02-23 17:16:33,822 - INFO - selecting value: 1994 from dropdown: DD year
+2026-02-23 17:16:34,056 - INFO - clicking on element: news latter checkbox
+2026-02-23 17:16:34,298 - INFO - clicking on element: special offer checkbox
+2026-02-23 17:16:34,672 - INFO - move to element: first name input
+2026-02-23 17:16:34,735 - INFO - Entering text: sahar in to element: first name 
+2026-02-23 17:16:34,953 - INFO - Entering text: dube in to element: last name
+2026-02-23 17:16:35,164 - INFO - Entering text: Mumbai in to element: company 
+2026-02-23 17:16:35,518 - INFO - Entering text: panchashl bagar in to element: address 1
+2026-02-23 17:16:35,771 - INFO - Entering text: sane gurugi in to element: address 2
+2026-02-23 17:16:35,988 - INFO - Entering text: bhag 2 in to element: address 3
+2026-02-23 17:16:36,177 - INFO - move to element: dropdown country
+2026-02-23 17:16:36,215 - INFO - selecting: India from dropdown: dropdown country
+2026-02-23 17:16:36,383 - INFO - Entering text: Maharashtra in to element: state name
+2026-02-23 17:16:36,482 - INFO - Entering text: Yavatmal in to element: city name
+2026-02-23 17:16:36,674 - INFO - Entering text: 445563 in to element: zip code
+2026-02-23 17:16:36,853 - INFO - move to element: mobile number
+2026-02-23 17:16:36,937 - INFO - Entering text: 9988774455.0 in to element: mobile number
+2026-02-23 17:16:37,148 - INFO - clicking on element: create account button
+2026-02-23 17:16:56,615 - INFO - username: paul00
+2026-02-23 17:16:56,616 - INFO - signup_email_address: rhenry@outlook
+2026-02-23 17:16:56,616 - INFO - clicking on element: sign in tab
+2026-02-23 17:16:58,083 - INFO - Entering text: paul00 in to element: 
+2026-02-23 17:16:58,490 - INFO - Entering text: rhenry@outlook in to element: 
+2026-02-23 17:16:58,910 - INFO - clicking on element: 
+2026-02-23 17:17:01,694 - INFO - clicking on element: MR_TITLE_BUTTON
+2026-02-23 17:17:01,961 - INFO - Entering text: sahu@78 in to element: password
+2026-02-23 17:17:02,087 - INFO - move to element: dropdown days
+2026-02-23 17:17:02,135 - INFO - selecting value: 12 from dropdown: dropdown days
+2026-02-23 17:17:02,333 - INFO - selecting: May from dropdown:  DD month
+2026-02-23 17:17:02,558 - INFO - selecting value: 1985 from dropdown: DD year
+2026-02-23 17:17:02,734 - INFO - clicking on element: news latter checkbox
+2026-02-23 17:17:03,141 - INFO - clicking on element: special offer checkbox
+2026-02-23 17:17:03,289 - INFO - move to element: first name input
+2026-02-23 17:17:03,324 - INFO - Entering text: sahil in to element: first name 
+2026-02-23 17:17:03,521 - INFO - Entering text: shaikh in to element: last name
+2026-02-23 17:17:03,677 - INFO - Entering text: tata in to element: company 
+2026-02-23 17:17:03,891 - INFO - Entering text: pune in to element: address 1
+2026-02-23 17:17:04,160 - INFO - Entering text: chichwad in to element: address 2
+2026-02-23 17:17:04,343 - INFO - Entering text: hinjawadi in to element: address 3
+2026-02-23 17:17:05,045 - INFO - move to element: dropdown country
+2026-02-23 17:17:05,542 - INFO - selecting: India from dropdown: dropdown country
+2026-02-23 17:17:05,716 - INFO - Entering text: panjab in to element: state name
+2026-02-23 17:17:05,890 - INFO - Entering text: luhiyana in to element: city name
+2026-02-23 17:17:06,585 - INFO - Entering text: 448552 in to element: zip code
+2026-02-23 17:17:07,078 - INFO - move to element: mobile number
+2026-02-23 17:17:07,143 - INFO - Entering text:  in to element: mobile number
+2026-02-23 17:17:07,495 - INFO - clicking on element: create account button

@@ -14,7 +14,7 @@ class RegistrationLocators:
         user actions during automation of the New User Registration workflow.
         """
     # ---- sign in webpage
-    SIGNIN_TAP = (By.XPATH, "//li[contains(., ' Signup / Login')]")
+    SIGNIN_TAB = (By.XPATH, "//li[contains(., ' Signup / Login')]")
     USERNAME_INPUT = (By.XPATH, "//input[@data-qa='signup-name']")
     EMAIL_INPUT = (By.XPATH, "//input[@data-qa='signup-email']")
     SIGN_UP_BUTTON = (By.XPATH, "//button[@data-qa='signup-button']")
@@ -27,6 +27,7 @@ class RegistrationLocators:
     MONTH_DROPDOWN = (By.ID, "months")
     YEAR_DROPDOWN = (By.ID, "years")
 
+    # Radio button locators
     NEWS_LATTER_CHECKBOX = (By.ID, "newsletter")
     SPECIAL_OFFER_CHECKBOX = (By.XPATH, "//input[@id= 'optin']")
 
@@ -49,4 +50,4 @@ class RegistrationLocators:
     ACCOUNT_CREATE_MESSAGE_TEXT = (By.XPATH, "//b[contains(text(), 'Enter Account Information')]")
 
     CONTINUE_BUTTON = (By.XPATH, "//a[@class ='btn btn-primary']")
-    LOGOUT_TAP = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")
+    LOGOUT_TAB = (By.XPATH, "/html[1]/body[1]/header[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]")

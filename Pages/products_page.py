@@ -28,19 +28,13 @@ class ProductPage(BasePage):
         :returns
             bool: True if log in successfully
         """
-        self.log_info("Navigating to login page")
-        self.click(ProductLocators.sign_in_tap)
+        self.click(ProductLocators.SIGN_IN_TAB, "sign in tab")
+        self.send_keys(ProductLocators.USER_NAME_INPUT, username, "user name ")
+        self.send_keys(ProductLocators.PASSWORD_INPUT, password, "password")
+        self.click(ProductLocators.LOGIN_BUTTON,"Login button")
 
-        self.log_info("Entering login credentials")
-        self.send_keys(ProductLocators.username, username)
-        self.send_keys(ProductLocators.password, password)
-
-        self.log_info("Clicking login button")
-        self.click(ProductLocators.login_button)
-
-        self.wait_visible(ProductLocators.logout_button)
+        self.wait_visible(ProductLocators.LOGOUT_BUTTON, "log out Button")
         self.close_google_vignette_ad()
-        self.log_info("Login successful")
 
     def login_verification(self) -> None:
         """
@@ -57,40 +51,34 @@ class ProductPage(BasePage):
         """
         Selects product from Kids → Dress category and proceeds to checkout.
         """
-        self.log_info("Starting product selection flow")
+        self.log_info("\nStarting product selection flow")
         self.close_google_vignette_ad()
 
-        self.wait_visible(ProductLocators.product_tap)
-        self.click(ProductLocators.product_tap)
+        self.wait_visible(ProductLocators.PRODUCT_TAB, "product tab")
+        self.click(ProductLocators.PRODUCT_TAB, "product tab")
         self.close_google_vignette_ad()
-        self.scroll_to_element(ProductLocators.kids_tap)
-        self.click(ProductLocators.kids_tap)
-        self.log_info("Navigated to Kids category")
+        self.scroll_to_element(ProductLocators.KIDS_TAB, "kids tab")
+        self.click(ProductLocators.KIDS_TAB, "kids tab")
+        self.click(ProductLocators.DRESS_TAB,"dress tab")
+        self.scroll_to_element(ProductLocators.VIEW_PRODUCT_TAB, "view product tab")
+        self.click(ProductLocators.VIEW_PRODUCT_TAB, "view product tab")
+        self.click(ProductLocators.ADD_TO_CART_TAB, "add to cart tab")
+        self.click(ProductLocators.CONTINUE_SHOPING_BUTTON,"continue on shopping button")
+        self.log_info("\nProduct added to cart")
 
-        self.click(ProductLocators.dress_tap)
-        self.log_info("Selected Dress category")
-
-        self.scroll_to_element(ProductLocators.view_product)
-        self.click(ProductLocators.view_product)
-
-        self.click(ProductLocators.add_to_cart)
-        self.click(ProductLocators.continue_shopping_button)
-        self.log_info("Product added to cart")
-
-        self.click(ProductLocators.cart_tap)
-        self.click(ProductLocators.proceed_to_checkout_button)
-
-        self.scroll_to_element(ProductLocators.place_order_button)
-        self.click(ProductLocators.place_order_button)
+        self.click(ProductLocators.CART_TAB, "cart tab")
+        self.click(ProductLocators.PROCEED_TO_CHECKOUT_BUTTON, "proceed to checkout button")
+        self.scroll_to_element(ProductLocators.PLACE_ORDER_BUTTON, "place order button")
+        self.click(ProductLocators.PLACE_ORDER_BUTTON, "place order button")
         self.log_info("Proceeded to checkout")
 
-    def card_details_page(self, name_on_card: str, card_number: str,
-                          cvv_number: str, expiry_month: str,
-                          expiry_year: str) -> None:
+    def card_details_page(self, name_on_card: str, card_number: int,
+                          cvv_number: int, expiry_month: int,
+                          expiry_year: int) -> None:
         """
         Enters payment card details and submits order.
 
-         :arg
+         :argument
              name_on_card(str): cardholder USERNAME_INPUT
              card_number(str): card number
              cvv_number(int): CVV number
@@ -101,34 +89,31 @@ class ProductPage(BasePage):
 
         """
         self.close_google_vignette_ad()
-        self.log_info("Entering card details")
+        self.log_info("\nEntering card details")
 
-        self.wait_visible(ProductLocators.name_on_card)
-        self.send_keys(ProductLocators.name_on_card, name_on_card)
-        self.send_keys(ProductLocators.card_number, card_number)
+        self.wait_visible(ProductLocators.NAME_ON_CARD_INPUT, "name on card")
+        self.send_keys(ProductLocators.NAME_ON_CARD_INPUT, name_on_card, "name on card")
+        self.send_keys(ProductLocators.CARD_NUMBER_INPUT, card_number, "card number")
 
-        self.scroll_to_element(ProductLocators.cvv)
-        self.send_keys(ProductLocators.cvv, cvv_number)
-        self.send_keys(ProductLocators.expiry_month, expiry_month)
-        self.send_keys(ProductLocators.expiry_year, expiry_year)
-
-        self.scroll_to_element(ProductLocators.submit_button)
-        self.click(ProductLocators.submit_button)
-
-        self.log_info("Payment submitted successfully")
+        self.scroll_to_element(ProductLocators.CVV_INPUT, "cvv ")
+        self.send_keys(ProductLocators.CVV_INPUT, cvv_number, "cvv")
+        self.send_keys(ProductLocators.EXPIRY_MONTH_INPUT, expiry_month, "expiry month")
+        self.send_keys(ProductLocators.EXPIRY_YEAR_INPUT, expiry_year, "expiry year")
+        self.scroll_to_element(ProductLocators.SUBMIT_BUTTON_INPUT, "submit button")
+        self.click(ProductLocators.SUBMIT_BUTTON_INPUT, "submit button")
 
     def order_verification(self) -> None:
         """
         Verifies order success message and downloads invoice.
         """
         self.close_google_vignette_ad()
-        self.log_info("Verifying order placement")
+        self.log_info("\nVerifying order placement")
 
-        success_message = self.get_text(ProductLocators.order_place_verification_text)
+        success_message = self.get_text(ProductLocators.ORDER_TEXT_VERIFICATION_TEXT)
         self.log_info(f"Order message displayed: {success_message}")
 
         assert success_message == "ORDER PLACED!", \
             f"Order verification failed. Expected 'ORDER PLACED!' but got '{success_message}'"
 
-        self.click(ProductLocators.download_invoice)
+        self.click(ProductLocators.DOWNLOAD_INVOICE_BUTTON,"download invoice")
         self.log_info("Invoice downloaded")

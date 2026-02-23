@@ -1,0 +1,29 @@
+INFO     AutomationLogger:base_page.py:48 username: torresaaron
+INFO     AutomationLogger:base_page.py:48 signup_email_address: tiffany12@outlook
+INFO     AutomationLogger:base_page.py:48 clicking on element: sign in tab
+INFO     AutomationLogger:base_page.py:48 Entering text: torresaaron in to element: 
+INFO     AutomationLogger:base_page.py:48 Entering text: tiffany12@outlook in to element: 
+INFO     AutomationLogger:base_page.py:48 clicking on element: 
+INFO     AutomationLogger:base_page.py:48 clicking on element: MR_TITLE_BUTTON
+INFO     AutomationLogger:base_page.py:48 Entering text: Ash@654 in to element: password
+INFO     AutomationLogger:base_page.py:48 move to element: dropdown days
+INFO     AutomationLogger:base_page.py:48 selecting value: 6 from dropdown: dropdown days
+INFO     AutomationLogger:base_page.py:48 selecting: April from dropdown:  DD month
+INFO     AutomationLogger:base_page.py:48 selecting value: 1994 from dropdown: DD year
+INFO     AutomationLogger:base_page.py:48 clicking on element: news latter checkbox
+INFO     AutomationLogger:base_page.py:48 clicking on element: special offer checkbox
+INFO     AutomationLogger:base_page.py:48 move to element: first name input
+INFO     AutomationLogger:base_page.py:48 Entering text: sahar in to element: first name 
+INFO     AutomationLogger:base_page.py:48 Entering text: dube in to element: last name
+INFO     AutomationLogger:base_page.py:48 Entering text: Mumbai in to element: company 
+INFO     AutomationLogger:base_page.py:48 Entering text: panchashl bagar in to element: address 1
+INFO     AutomationLogger:base_page.py:48 Entering text: sane gurugi in to element: address 2
+INFO     AutomationLogger:base_page.py:48 Entering text: bhag 2 in to element: address 3
+INFO     AutomationLogger:base_page.py:48 move to element: dropdown country
+INFO     AutomationLogger:base_page.py:48 selecting: India from dropdown: dropdown country
+INFO     AutomationLogger:base_page.py:48 Entering text: Maharashtra in to element: state name
+INFO     AutomationLogger:base_page.py:48 Entering text: Yavatmal in to element: city name
+INFO     AutomationLogger:base_page.py:48 Entering text: 445563 in to element: zip code
+INFO     AutomationLogger:base_page.py:48 move to element: mobile number
+INFO     AutomationLogger:base_page.py:48 Entering text: 9988774455.0 in to element: mobile number
+INFO     AutomationLogger:base_page.py:48 clicking on element: create account button

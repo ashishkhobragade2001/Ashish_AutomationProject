@@ -6,6 +6,11 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
+class ElementActionException(Exception):
+    """custom exception for element action"""
+    pass
+
+
 class BasePage:
     """
         BasePage contains common reusable Selenium actions used across all Page Objects.

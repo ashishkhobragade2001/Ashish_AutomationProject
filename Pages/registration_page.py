@@ -5,14 +5,14 @@ from Utilities.base_page import BasePage
 
 class RegistrationPage(BasePage):
 
-    def is_username_email_unique(self):
+    def is_username_email_unique(self) -> bool:
         return self.is_element_visible(RegistrationLocators.ACCOUNT_CREATE_MESSAGE_TEXT)
 
-    def is_registration_successful(self):
+    def is_registration_successful(self) -> bool:
         return self.is_element_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT)
 
-    def new_user_signup(self, data):
-        # ------ for fake username an EMAIL_INPUT address
+    def new_user_signup(self, data: dict) -> None:
+        # ------ for fake username an email address
         fake = Faker()
         data["signup_username"] = fake.user_name()
         data["signup_email_address"] = fake.email(domain="outlook")
@@ -20,12 +20,12 @@ class RegistrationPage(BasePage):
         self.log_info(f"signup_email_address: {data["signup_email_address"]}")
 
         # ------ for new sign in username and password
-        self.click(RegistrationLocators.SIGNIN_TAP, locator_name="sign in tab")
+        self.click(RegistrationLocators.SIGNIN_TAB, locator_name="sign in tab")
         self.send_keys(RegistrationLocators.USERNAME_INPUT, data["signup_username"])
         self.send_keys(RegistrationLocators.EMAIL_INPUT, data["signup_email_address"])
         self.click(RegistrationLocators.SIGN_UP_BUTTON)
 
-    def new_registration(self, data):
+    def new_registration(self, data: dict) -> None:
         """
         A new username and EMAIL_INPUT for new user login. Get the data from Excel file having the following attribute
             signup_username: get username from faker module.
@@ -57,23 +57,22 @@ class RegistrationPage(BasePage):
         self.select_by_text(RegistrationLocators.MONTH_DROPDOWN, data["month"], locator_name=" DD month")
         self.select_by_value(RegistrationLocators.YEAR_DROPDOWN, data["year"], locator_name="DD year")
 
-        self.click(RegistrationLocators.NEWS_LATTER_CHECKBOX)
-        self.click(RegistrationLocators.SPECIAL_OFFER_CHECKBOX)
+        self.click(RegistrationLocators.NEWS_LATTER_CHECKBOX, locator_name="news latter checkbox")
+        self.click(RegistrationLocators.SPECIAL_OFFER_CHECKBOX, locator_name="special offer checkbox")
 
-        self.scroll_to_element(RegistrationLocators.FIRST_NAME_INPUT)
-        self.send_keys(RegistrationLocators.FIRST_NAME_INPUT, data["first_name"])
-        self.send_keys(RegistrationLocators.LAST_NAME_INPUT, data["last_name"])
-        self.send_keys(RegistrationLocators.COMPANY_INPUT, data["company"])
-        self.send_keys(RegistrationLocators.ADDRESS_1_INPUT, data["address_1"])
-        self.send_keys(RegistrationLocators.ADDRESS_2_INPUT, data["address_2"])
-        self.send_keys(RegistrationLocators.ADDRESS_3_INPUT, data["address_3"])
+        self.scroll_to_element(RegistrationLocators.FIRST_NAME_INPUT, locator_name="first name input")
+        self.send_keys(RegistrationLocators.FIRST_NAME_INPUT, data["first_name"], locator_name="first name ")
+        self.send_keys(RegistrationLocators.LAST_NAME_INPUT, data["last_name"], "last name")
+        self.send_keys(RegistrationLocators.COMPANY_INPUT, data["company"], "company ")
+        self.send_keys(RegistrationLocators.ADDRESS_1_INPUT, data["address_1"], "address 1")
+        self.send_keys(RegistrationLocators.ADDRESS_2_INPUT, data["address_2"], "address 2")
+        self.send_keys(RegistrationLocators.ADDRESS_3_INPUT, data["address_3"], "address 3")
 
-        self.scroll_to_element(RegistrationLocators.COUNTRY_DROPDOWN)
-        self.select_by_text(RegistrationLocators.COUNTRY_DROPDOWN, data["country_name"])
-        self.send_keys(RegistrationLocators.STATE_INPUT, data["state_name"])
-        self.send_keys(RegistrationLocators.CITY_INPUT, data["city_name"])
-        self.send_keys(RegistrationLocators.ZIPCODE_INPUT, data["zip_code"])
-        self.scroll_to_element(RegistrationLocators.MOBILE_NUMBER_INPUT)
-        self.send_keys(RegistrationLocators.MOBILE_NUMBER_INPUT, data["mobile_number"])
-        self.click(RegistrationLocators.CREATE_ACCOUNT_BUTTON)
-        self.wait_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT)
+        self.scroll_to_element(RegistrationLocators.COUNTRY_DROPDOWN, "dropdown country")
+        self.select_by_text(RegistrationLocators.COUNTRY_DROPDOWN, data["country_name"], "dropdown country")
+        self.send_keys(RegistrationLocators.STATE_INPUT, data["state_name"], "state name")
+        self.send_keys(RegistrationLocators.CITY_INPUT, data["city_name"], "city name")
+        self.send_keys(RegistrationLocators.ZIPCODE_INPUT, data["zip_code"], "zip code")
+        self.scroll_to_element(RegistrationLocators.MOBILE_NUMBER_INPUT, "mobile number")
+        self.send_keys(RegistrationLocators.MOBILE_NUMBER_INPUT, data["mobile_number"], "mobile number")
+        self.click(RegistrationLocators.CREATE_ACCOUNT_BUTTON, "create account button")
