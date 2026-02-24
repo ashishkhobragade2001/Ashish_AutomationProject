@@ -106,7 +106,7 @@ class BasePage:
             self.log_error(f"failed to get text from locator: '{locator_name}'")
             raise ElementActionException(f"unable to get text from locator: '{locator_name}'")
 
-    def is_element_visible(self, locator, locator_name="" ) -> bool:
+    def is_element_visible(self, locator, locator_name="") -> bool:
         try:
             element = self.wait.until(EC.visibility_of_element_located(locator))
             self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
@@ -137,11 +137,9 @@ class BasePage:
             select = Select(element)
             select.select_by_visible_text(str(text))
             self.log_info(f"Successfully selected text: {text} from dropdown locator: '{locator_name}'")
-        except (TimeoutException,  NoSuchElementException):
+        except (TimeoutException, NoSuchElementException):
             self.log_error(f"Failed to select text: {text} from locator: {locator_name}")
             raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with text: {text}")
-        # self.log_info(f"selecting: {text} from dropdown: {locator_name}")
-        # Select(self.driver.find_element(*locator)).select_by_visible_text(str(text))
 
     def select_by_value(self, locator, value, locator_name=""):
         """
@@ -157,12 +155,9 @@ class BasePage:
             select = Select(element)
             select.select_by_value(str(value))
             self.log_info(f"Successfully selected value: {value} from dropdown locator: '{locator_name}'")
-        except (TimeoutException,  NoSuchElementException):
+        except (TimeoutException, NoSuchElementException):
             self.log_error(f"Failed to select value: {value} from locator: {locator_name}")
             raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with Value: {value}")
-
-        # self.log_info(f"selecting value: {value} from dropdown: {locator_name}")
-        # Select(self.driver.find_element(*locator)).select_by_value(str(value))
 
     def select_by_index(self, locator, index, locator_name=""):
         try:
@@ -171,11 +166,9 @@ class BasePage:
             select = Select(element)
             select.select_by_index(int(index))
             self.log_info(f"Successfully selected index: {index} from dropdown locator: '{locator_name}'")
-        except (TimeoutException,  NoSuchElementException):
+        except (TimeoutException, NoSuchElementException):
             self.log_error(f"Failed to select index: {index} from locator: {locator_name}")
             raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with index: {index}")
-        # self.log_info(f"selecting index: {index} from dropdown: {locator_name}")
-        # Select(self.driver.find_element(*locator)).select_by_index(index)
 
     def wait_visible(self, locator, locator_name=""):
         self.log_info(f"wait until element not visible: {locator_name} ")
@@ -194,7 +187,6 @@ class BasePage:
         except Exception as e:
             self.log_error(f"Failed to capture screenshot")
             raise ElementActionException(f"screenshot capture failed")
-
 
     def switch_to_new_window(self):
         parent = self.driver.current_window_handle

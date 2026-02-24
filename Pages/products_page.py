@@ -23,7 +23,7 @@ class ProductPage(BasePage):
         Logs into the application using valid credentials.
 
         :argument
-            username(str): User EMAIL_INPUT
+            username(str): User username
             password(str): User password
         :returns
             bool: True if log in successfully
@@ -42,7 +42,6 @@ class ProductPage(BasePage):
         """
         expected_title = "Automation Exercise"
         actual_title = self.get_title()
-
         self.log_info(f"Verifying page title: {actual_title}")
         assert actual_title == expected_title, \
             f"Login failed. Expected title '{expected_title}', but got '{actual_title}'"
@@ -51,9 +50,7 @@ class ProductPage(BasePage):
         """
         Selects product from Kids → Dress category and proceeds to checkout.
         """
-        self.log_info("\nStarting product selection flow")
         self.close_google_vignette_ad()
-
         self.wait_visible(ProductLocators.PRODUCT_TAB, "product tab")
         self.click(ProductLocators.PRODUCT_TAB, "product tab")
         self.close_google_vignette_ad()
@@ -64,13 +61,11 @@ class ProductPage(BasePage):
         self.click(ProductLocators.VIEW_PRODUCT_TAB, "view product tab")
         self.click(ProductLocators.ADD_TO_CART_TAB, "add to cart tab")
         self.click(ProductLocators.CONTINUE_SHOPING_BUTTON,"continue on shopping button")
-        self.log_info("\nProduct added to cart")
 
         self.click(ProductLocators.CART_TAB, "cart tab")
         self.click(ProductLocators.PROCEED_TO_CHECKOUT_BUTTON, "proceed to checkout button")
         self.scroll_to_element(ProductLocators.PLACE_ORDER_BUTTON, "place order button")
         self.click(ProductLocators.PLACE_ORDER_BUTTON, "place order button")
-        self.log_info("Proceeded to checkout")
 
     def card_details_page(self, name_on_card: str, card_number: int,
                           cvv_number: int, expiry_month: int,
@@ -86,11 +81,8 @@ class ProductPage(BasePage):
              expiry_year(int): Expiry Year
         :returns
             bool: True if payment successfully
-
         """
         self.close_google_vignette_ad()
-        self.log_info("\nEntering card details")
-
         self.wait_visible(ProductLocators.NAME_ON_CARD_INPUT, "name on card")
         self.send_keys(ProductLocators.NAME_ON_CARD_INPUT, name_on_card, "name on card")
         self.send_keys(ProductLocators.CARD_NUMBER_INPUT, card_number, "card number")
@@ -107,8 +99,7 @@ class ProductPage(BasePage):
         Verifies order success message and downloads invoice.
         """
         self.close_google_vignette_ad()
-        self.log_info("\nVerifying order placement")
-
+        self.log_info("Verifying order placement")
         success_message = self.get_text(ProductLocators.ORDER_TEXT_VERIFICATION_TEXT)
         self.log_info(f"Order message displayed: {success_message}")
 

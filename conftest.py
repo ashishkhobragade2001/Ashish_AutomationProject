@@ -98,7 +98,7 @@ def pytest_runtest_makereport(item, call):
 # 🌟 METADATA
 def pytest_metadata(metadata):
     metadata["Project"] = "Automation Exercise"
-    metadata["Tester"] = "Ashish"
+    metadata["Tester"] = "Ashish Khobragade"
     metadata["Browser"] = "Chrome"
     metadata["Framework"] = "Pytest + Selenium"
 

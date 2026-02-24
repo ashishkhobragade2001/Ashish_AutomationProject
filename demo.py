@@ -1,7 +1,4 @@
 from faker import Faker
-import pandas as pd
-
-from Utilities.excel_reader import get_registration_data
 
 
 def demo_fake():

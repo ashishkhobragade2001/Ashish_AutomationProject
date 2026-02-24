@@ -6,6 +6,7 @@ from Utilities.excel_reader import get_registration_data
 class TestRegistration:
     """Test suite for verifying user registration functionality."""
 
+    @pytest.mark.registration
     @pytest.mark.parametrize("data", get_registration_data())
     def test_registration(self, driver, logger, data):
         """

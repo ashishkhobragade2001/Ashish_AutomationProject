@@ -12,8 +12,9 @@ def test_login(driver, EMAIL_INPUT, password):
     lp.login(EMAIL_INPUT, password)"""
 
 
+@pytest.mark.login
 @pytest.mark.parametrize("username, password, expected_result", get_login_data())
-def test_login(driver, logger,  username, password, expected_result):
+def test_login(driver, logger, username, password, expected_result):
     lp = LoginPage(driver, logger)
     lp.login(username, password)
 
