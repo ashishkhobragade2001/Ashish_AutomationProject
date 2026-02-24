@@ -1,0 +1,36 @@
+INFO     AutomationLogger:base_page.py:49 username: mariafuller
+INFO     AutomationLogger:base_page.py:49 signup_email_address: hmoore@outlook.com
+INFO     AutomationLogger:base_page.py:49 clicked on element: sign in tab
+INFO     AutomationLogger:base_page.py:49 Entered text: mariafuller in to element: 
+INFO     AutomationLogger:base_page.py:49 Entered text: hmoore@outlook.com in to element: 
+INFO     AutomationLogger:base_page.py:49 clicked on element: 
+INFO     AutomationLogger:base_page.py:49 wait until element not visible: account create message 
+INFO     AutomationLogger:base_page.py:49 Element: '<selenium.webdriver.remote.webelement.WebElement (session="b88c6b18d52d09061a180361bb87e741", element="f.36D8051BEE87A43706A1BDF1B26E5832.d.13080214CA1E70E6B38955E7C8A697D4.e.94")>' is visible on locator: account create message
+INFO     AutomationLogger:base_page.py:49 clicked on element: MR_TITLE_BUTTON
+INFO     AutomationLogger:base_page.py:49 Entered text: sahu@78 in to element: password
+INFO     AutomationLogger:base_page.py:49 move to element: dropdown days
+INFO     AutomationLogger:base_page.py:49 selecting value: 12 from dropdown locator: 'dropdown days'
+INFO     AutomationLogger:base_page.py:49 Successfully selected value: 12 from dropdown locator: 'dropdown days'
+INFO     AutomationLogger:base_page.py:49 selecting text: May from dropdown locator: ' DD month'
+INFO     AutomationLogger:base_page.py:49 Successfully selected text: May from dropdown locator: ' DD month'
+INFO     AutomationLogger:base_page.py:49 selecting value: 1985 from dropdown locator: 'DD year'
+INFO     AutomationLogger:base_page.py:49 Successfully selected value: 1985 from dropdown locator: 'DD year'
+INFO     AutomationLogger:base_page.py:49 clicked on element: news latter checkbox
+INFO     AutomationLogger:base_page.py:49 clicked on element: special offer checkbox
+INFO     AutomationLogger:base_page.py:49 move to element: first name input
+INFO     AutomationLogger:base_page.py:49 Entered text: sahil in to element: first name 
+INFO     AutomationLogger:base_page.py:49 Entered text: shaikh in to element: last name
+INFO     AutomationLogger:base_page.py:49 Entered text: tata in to element: company 
+INFO     AutomationLogger:base_page.py:49 Entered text: pune in to element: address 1
+INFO     AutomationLogger:base_page.py:49 Entered text: chichwad in to element: address 2
+INFO     AutomationLogger:base_page.py:49 Entered text: hinjawadi in to element: address 3
+INFO     AutomationLogger:base_page.py:49 move to element: dropdown country
+INFO     AutomationLogger:base_page.py:49 selecting text: India from dropdown locator: 'dropdown country'
+INFO     AutomationLogger:base_page.py:49 Successfully selected text: India from dropdown locator: 'dropdown country'
+INFO     AutomationLogger:base_page.py:49 Entered text: panjab in to element: state name
+INFO     AutomationLogger:base_page.py:49 Entered text: luhiyana in to element: city name
+INFO     AutomationLogger:base_page.py:49 Entered text: 448552 in to element: zip code
+INFO     AutomationLogger:base_page.py:49 move to element: mobile number
+INFO     AutomationLogger:base_page.py:49 Entered text:  in to element: mobile number
+INFO     AutomationLogger:base_page.py:49 clicked on element: create account button
+INFO     AutomationLogger:base_page.py:49 wait until element not visible: successful create message text

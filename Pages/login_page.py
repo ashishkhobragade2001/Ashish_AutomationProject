@@ -21,4 +21,4 @@ class LoginPage(BasePage):
         after click on submit button validate login verification test isvisible or not.
         :return: return bool value if an element is visible.
         """
-        return self.is_element_visible(LoginLocators.LOGIN_VRF_TEXT)
+        return self.is_element_visible(LoginLocators.LOGIN_VRF_TEXT, "login text verification")

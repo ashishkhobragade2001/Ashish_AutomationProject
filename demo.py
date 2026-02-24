@@ -12,5 +12,3 @@ def demo_fake():
     name_male = (fake.name_male())
     name_female = (fake.name_female())
 
-
-data = get_registration_data()

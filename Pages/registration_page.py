@@ -6,16 +6,18 @@ from Utilities.base_page import BasePage
 class RegistrationPage(BasePage):
 
     def is_username_email_unique(self) -> bool:
-        return self.is_element_visible(RegistrationLocators.ACCOUNT_CREATE_MESSAGE_TEXT)
+        # self.wait_visible(RegistrationLocators.ACCOUNT_CREATE_MESSAGE_TEXT, "account create message")
+        return self.is_element_visible(RegistrationLocators.ACCOUNT_CREATE_MESSAGE_TEXT, "account create message")
 
     def is_registration_successful(self) -> bool:
-        return self.is_element_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT)
+        # self.wait_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT, "successful create message text")
+        return self.is_element_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT, "successful created message text")
 
     def new_user_signup(self, data: dict) -> None:
         # ------ for fake username an email address
         fake = Faker()
         data["signup_username"] = fake.user_name()
-        data["signup_email_address"] = fake.email(domain="outlook")
+        data["signup_email_address"] = fake.email(domain="outlook.com")
         self.log_info(f"username: {data["signup_username"]}")
         self.log_info(f"signup_email_address: {data["signup_email_address"]}")
 

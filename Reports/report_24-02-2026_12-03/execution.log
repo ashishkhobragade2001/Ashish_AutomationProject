@@ -1,0 +1,73 @@
+2026-02-24 12:03:58,157 - INFO - username: timothywright
+2026-02-24 12:03:58,158 - INFO - signup_email_address: umorris@outlook.com
+2026-02-24 12:04:03,781 - INFO - clicked on element: sign in tab
+2026-02-24 12:04:04,813 - INFO - Entered text: timothywright in to element: 
+2026-02-24 12:04:05,476 - INFO - Entered text: umorris@outlook.com in to element: 
+2026-02-24 12:04:09,622 - INFO - clicked on element: 
+2026-02-24 12:04:09,622 - INFO - wait until element not visible: account create message 
+2026-02-24 12:04:09,701 - INFO - Element: '<selenium.webdriver.remote.webelement.WebElement (session="cbeba3eb9c663d72c362de1956a2eed7", element="f.538635841499AD1EBC37F60ACFFC5C4B.d.6A3045E361B85BA43520529A86B2779D.e.93")>' is visible on locator: account create message
+2026-02-24 12:04:10,060 - INFO - clicked on element: MR_TITLE_BUTTON
+2026-02-24 12:04:10,286 - INFO - Entered text: Ash@654 in to element: password
+2026-02-24 12:04:10,286 - INFO - move to element: dropdown days
+2026-02-24 12:04:10,372 - INFO - selecting value: 6 from dropdown locator: 'dropdown days'
+2026-02-24 12:04:10,635 - INFO - Successfully selected value: 6 from dropdown locator: 'dropdown days'
+2026-02-24 12:04:10,635 - INFO - selecting text: April from dropdown locator: ' DD month'
+2026-02-24 12:04:10,894 - INFO - Successfully selected text: April from dropdown locator: ' DD month'
+2026-02-24 12:04:10,895 - INFO - selecting value: 1994 from dropdown locator: 'DD year'
+2026-02-24 12:04:11,061 - INFO - Successfully selected value: 1994 from dropdown locator: 'DD year'
+2026-02-24 12:04:11,251 - INFO - clicked on element: news latter checkbox
+2026-02-24 12:04:11,468 - INFO - clicked on element: special offer checkbox
+2026-02-24 12:04:11,469 - INFO - move to element: first name input
+2026-02-24 12:04:11,741 - INFO - Entered text: sahar in to element: first name 
+2026-02-24 12:04:12,001 - INFO - Entered text: dube in to element: last name
+2026-02-24 12:04:12,199 - INFO - Entered text: Mumbai in to element: company 
+2026-02-24 12:04:12,582 - INFO - Entered text: panchashl bagar in to element: address 1
+2026-02-24 12:04:12,791 - INFO - Entered text: sane gurugi in to element: address 2
+2026-02-24 12:04:13,059 - INFO - Entered text: bhag 2 in to element: address 3
+2026-02-24 12:04:13,060 - INFO - move to element: dropdown country
+2026-02-24 12:04:13,094 - INFO - selecting text: India from dropdown locator: 'dropdown country'
+2026-02-24 12:04:13,192 - INFO - Successfully selected text: India from dropdown locator: 'dropdown country'
+2026-02-24 12:04:13,372 - INFO - Entered text: Maharashtra in to element: state name
+2026-02-24 12:04:13,550 - INFO - Entered text: Yavatmal in to element: city name
+2026-02-24 12:04:13,733 - INFO - Entered text: 445563 in to element: zip code
+2026-02-24 12:04:13,734 - INFO - move to element: mobile number
+2026-02-24 12:04:14,005 - INFO - Entered text: 9988774455.0 in to element: mobile number
+2026-02-24 12:04:19,060 - INFO - clicked on element: create account button
+2026-02-24 12:04:19,060 - INFO - wait until element not visible: successful create message text 
+2026-02-24 12:04:19,128 - INFO - Element: '<selenium.webdriver.remote.webelement.WebElement (session="cbeba3eb9c663d72c362de1956a2eed7", element="f.538635841499AD1EBC37F60ACFFC5C4B.d.0A1EED22F3B71EEAE24838E2482AC397.e.127")>' is visible on locator: successful created message text
+2026-02-24 12:04:34,012 - INFO - username: mariafuller
+2026-02-24 12:04:34,012 - INFO - signup_email_address: hmoore@outlook.com
+2026-02-24 12:04:36,238 - INFO - clicked on element: sign in tab
+2026-02-24 12:04:36,554 - INFO - Entered text: mariafuller in to element: 
+2026-02-24 12:04:38,039 - INFO - Entered text: hmoore@outlook.com in to element: 
+2026-02-24 12:04:45,469 - INFO - clicked on element: 
+2026-02-24 12:04:45,469 - INFO - wait until element not visible: account create message 
+2026-02-24 12:04:45,572 - INFO - Element: '<selenium.webdriver.remote.webelement.WebElement (session="b88c6b18d52d09061a180361bb87e741", element="f.36D8051BEE87A43706A1BDF1B26E5832.d.13080214CA1E70E6B38955E7C8A697D4.e.94")>' is visible on locator: account create message
+2026-02-24 12:04:46,084 - INFO - clicked on element: MR_TITLE_BUTTON
+2026-02-24 12:04:46,380 - INFO - Entered text: sahu@78 in to element: password
+2026-02-24 12:04:46,381 - INFO - move to element: dropdown days
+2026-02-24 12:04:46,456 - INFO - selecting value: 12 from dropdown locator: 'dropdown days'
+2026-02-24 12:04:46,835 - INFO - Successfully selected value: 12 from dropdown locator: 'dropdown days'
+2026-02-24 12:04:46,835 - INFO - selecting text: May from dropdown locator: ' DD month'
+2026-02-24 12:04:47,283 - INFO - Successfully selected text: May from dropdown locator: ' DD month'
+2026-02-24 12:04:47,284 - INFO - selecting value: 1985 from dropdown locator: 'DD year'
+2026-02-24 12:04:47,620 - INFO - Successfully selected value: 1985 from dropdown locator: 'DD year'
+2026-02-24 12:04:48,772 - INFO - clicked on element: news latter checkbox
+2026-02-24 12:04:49,267 - INFO - clicked on element: special offer checkbox
+2026-02-24 12:04:49,267 - INFO - move to element: first name input
+2026-02-24 12:04:49,633 - INFO - Entered text: sahil in to element: first name 
+2026-02-24 12:04:49,902 - INFO - Entered text: shaikh in to element: last name
+2026-02-24 12:04:50,217 - INFO - Entered text: tata in to element: company 
+2026-02-24 12:04:50,448 - INFO - Entered text: pune in to element: address 1
+2026-02-24 12:04:50,793 - INFO - Entered text: chichwad in to element: address 2
+2026-02-24 12:04:51,054 - INFO - Entered text: hinjawadi in to element: address 3
+2026-02-24 12:04:51,055 - INFO - move to element: dropdown country
+2026-02-24 12:04:51,101 - INFO - selecting text: India from dropdown locator: 'dropdown country'
+2026-02-24 12:04:51,252 - INFO - Successfully selected text: India from dropdown locator: 'dropdown country'
+2026-02-24 12:04:51,492 - INFO - Entered text: panjab in to element: state name
+2026-02-24 12:04:52,064 - INFO - Entered text: luhiyana in to element: city name
+2026-02-24 12:04:52,539 - INFO - Entered text: 448552 in to element: zip code
+2026-02-24 12:04:52,539 - INFO - move to element: mobile number
+2026-02-24 12:04:53,229 - INFO - Entered text:  in to element: mobile number
+2026-02-24 12:04:53,514 - INFO - clicked on element: create account button
+2026-02-24 12:04:53,514 - INFO - wait until element not visible: successful create message text 
