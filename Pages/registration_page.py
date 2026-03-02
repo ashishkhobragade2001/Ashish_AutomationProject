@@ -1,6 +1,9 @@
 from faker import Faker
 from Locators.registration_locators import RegistrationLocators
 from Utilities.base_page import BasePage
+from TestData.user_factory import UserFactory
+
+
 
 
 class RegistrationPage(BasePage):
@@ -14,22 +17,22 @@ class RegistrationPage(BasePage):
     def new_user_signup(self, data: dict) -> None:
         # ------ for fake username an email address and others.
         self.log_info(f"\n============ start Registration ==================")
-        fake = Faker("en_IN")
-        data["signup_username"] = fake.user_name() if data["signup_username"] else ""
-        data["signup_email_address"] = fake.email(domain="gmail.com") if data["signup_email_address"] else ""
-        data["password"] = fake.password() if data["password"] else ""
-        data["first_name"] = fake.first_name_male() if data["first_name"] else ""
-        data["last_name"] = fake.last_name() if data["last_name"] else ""
-        data["mobile_number"] = fake.numerify(text="9#########") if data["mobile_number"] else ""
-        data["company"] = fake.company()
-        data["address_1"] = fake.street_address()if data["address_1"] else ""
-        data["address_2"] = fake.street_name() + ", " + fake.city() if data["address_2"] else ""
-        data["state_name"] = fake.state() if data["state_name"] else ""
-        data["city_name"] = fake.city() if data["city_name"] else ""
-        data["zip_code"] = fake.zipcode_in_state(state_abbr="MH") if data["zip_code"] else ""
-
-        self.log_info(f"username: {data["signup_username"]}")
-        self.log_info(f"signup_email_address: {data["signup_email_address"]}")
+        # fake = Faker("en_IN")
+        # data["signup_username"] = fake.user_name() if data["signup_username"] else ""
+        # data["signup_email_address"] = fake.email(domain="gmail.com") if data["signup_email_address"] else ""
+        # data["password"] = fake.password() if data["password"] else ""
+        # data["first_name"] = fake.first_name_male() if data["first_name"] else ""
+        # data["last_name"] = fake.last_name() if data["last_name"] else ""
+        # data["mobile_number"] = fake.numerify(text="9#########") if data["mobile_number"] else ""
+        # data["company"] = fake.company()
+        # data["address_1"] = fake.street_address()if data["address_1"] else ""
+        # data["address_2"] = fake.street_name() + ", " + fake.city() if data["address_2"] else ""
+        # data["state_name"] = fake.state() if data["state_name"] else ""
+        # data["city_name"] = fake.city() if data["city_name"] else ""
+        # data["zip_code"] = fake.zipcode_in_state(state_abbr="MH") if data["zip_code"] else ""
+        #
+        # self.log_info(f"username: {data["signup_username"]}")
+        # self.log_info(f"signup_email_address: {data["signup_email_address"]}")
 
         # ------ for new sign in username and password
         self.click(RegistrationLocators.SIGNIN_TAB, locator_name="sign in tab")

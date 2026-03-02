@@ -1,61 +1,87 @@
+"""
+Module: test_registration
+Description: Contains automated test cases for validating
+             the user registration workflow including
+             UI validation and database verification.
+"""
+
 import pytest
-from Utilities.db_utils import RegistrationDatabase
 from Pages.registration_page import RegistrationPage
+from Utilities.db_utils import RegistrationDatabase
 from Utilities.excel_reader import get_registration_data
+from TestData.user_factory import UserFactory
 
 
 class TestRegistration:
-    """Test suite for verifying user registration functionality."""
+    """
+    Test suite for verifying complete user registration functionality.
+
+    This includes:
+        - UI-based registration validation
+        - Success message verification
+        - Database insertion and validation
+    """
 
     @pytest.mark.registration
     @pytest.mark.parametrize("data", get_registration_data())
     def test_registration(self, driver, logger, data):
         """
-        Verify that a new user can successfully complete the registration process.
+        Test that a new user can successfully register
+        and the data is correctly stored in the database.
 
-        This test uses the RegistrationPage page object to fill in all required
-        user details and submit the registration form.
-
-        After successfully created registration user, database connection activates
-        and loads this data into a mysql database and Validates this loaded Data.
-
-        Args:
-            driver (WebDriver): Selenium WebDriver instance provided by pytest fixture.
-            logger (Logger): Logger instance used to record test execution steps.
-
-        Steps:
-            1. Open the registration page.
-            2. Enter account credentials (username, EMAIL_INPUT, password).
-            3. Validate username and EMAIL_INPUT is unique.
-            4. Enter personal details.
-            5. Submit the registration form.
-            6. Validate registration is successful or not.
-
-        Expected Result:
-            The user registration should complete successfully without errors,
-            and the account should be created.
+        :param driver: Selenium WebDriver fixture
+        :param logger: Logger fixture
+        :param data: Registration data from Excel file
         """
+
+        logger.info("===== Starting Registration Test =====")
+
+        # Generate unique user data using factory
+        fake_data = UserFactory.generate_user()
+        data.update(fake_data)
+
         rp = RegistrationPage(driver, logger)
 
-        # ---- New user Sign up
+        # ---- Step 1: Initial Signup
         rp.new_user_signup(data)
-        actual_result = "pass" if rp.is_username_email_unique() else "fail"
-        assert actual_result == "pass", "username or EMAIL_INPUT address not unique."
 
-        # ---- New Registration page (Personal information Page)
+        assert rp.is_username_email_unique(), \
+            "Username or Email is not unique."
+
+        logger.info("Username and Email validated successfully.")
+
+        # ---- Step 2: Complete Registration
         rp.new_registration(data)
-        registration_result = "success" if rp.is_registration_successful() else "failure"
 
-        assert registration_result == data["expected_result"], \
-            f"Expected: {data['expected_result']} but we got: {registration_result}"
+        registration_success = rp.is_registration_successful()
+        expected_success = data["expected_result"].strip().lower() == "success"
 
-        # ---- DB Insert (Simulation purpose)
-        if registration_result == "success":
+        logger.info(f"Expected: {expected_success}")
+        logger.info(f"Actual: {registration_success}")
+
+        if expected_success:
+            assert registration_success, "Expected success but registration failed."
+        else:
+            assert not registration_success, "Expected failure but registration succeeded."
+
+        # ---- Step 3: Database Validation
+        if registration_success and expected_success:
+            logger.info("Starting DB validation...")
+
             db = RegistrationDatabase(logger)
-            db.insert_user(data)
 
-            # ---- DB Validation
-            result = db.user_exists(data["signup_email_address"])
-            assert len(result) == 1, "User not inserted in DB"
+            try:
+                db.insert_user(data)
 
-            db.close()
+                result = db.user_exists(data["signup_email_address"])
+                assert len(result) == 1, "User not inserted in DB"
+
+                logger.info("Database validation successful.")
+
+            finally:
+                db.close()
+
+        else:
+            logger.info("Skipping DB validation since registration failed or expected failure.")
+
+        logger.info("===== Registration Test Completed =====")
