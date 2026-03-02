@@ -1,4 +1,5 @@
 import pytest
+from Utilities.db_utils import RegistrationDatabase
 from Pages.registration_page import RegistrationPage
 from Utilities.excel_reader import get_registration_data
 
@@ -14,6 +15,9 @@ class TestRegistration:
 
         This test uses the RegistrationPage page object to fill in all required
         user details and submit the registration form.
+
+        After successfully created registration user, database connection activates
+        and loads this data into a mysql database and Validates this loaded Data.
 
         Args:
             driver (WebDriver): Selenium WebDriver instance provided by pytest fixture.
@@ -38,8 +42,20 @@ class TestRegistration:
         actual_result = "pass" if rp.is_username_email_unique() else "fail"
         assert actual_result == "pass", "username or EMAIL_INPUT address not unique."
 
-        # ---- New Registration page (Personal information form)
+        # ---- New Registration page (Personal information Page)
         rp.new_registration(data)
         registration_result = "success" if rp.is_registration_successful() else "failure"
+
         assert registration_result == data["expected_result"], \
-            f"Expected: {data["expected_result"]} but we got: {registration_result}"
+            f"Expected: {data['expected_result']} but we got: {registration_result}"
+
+        # ---- DB Insert (Simulation purpose)
+        if registration_result == "success":
+            db = RegistrationDatabase(logger)
+            db.insert_user(data)
+
+            # ---- DB Validation
+            result = db.user_exists(data["signup_email_address"])
+            assert len(result) == 1, "User not inserted in DB"
+
+            db.close()

@@ -6,18 +6,38 @@ from Utilities.base_page import BasePage
 class RegistrationPage(BasePage):
 
     def is_username_email_unique(self) -> bool:
-        # self.wait_visible(RegistrationLocators.ACCOUNT_CREATE_MESSAGE_TEXT, "account create message")
         return self.is_element_visible(RegistrationLocators.ACCOUNT_CREATE_MESSAGE_TEXT, "account create message")
 
     def is_registration_successful(self) -> bool:
-        # self.wait_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT, "successful create message text")
         return self.is_element_visible(RegistrationLocators.SUCCESSFUL_CREATE_MESSAGE_TEXT, "successful created message text")
 
     def new_user_signup(self, data: dict) -> None:
-        # ------ for fake username an email address
-        fake = Faker()
-        data["signup_username"] = fake.user_name()
-        data["signup_email_address"] = fake.email(domain="outlook.com")
+        # ------ for fake username an email address and others.
+        fake = Faker("en_IN")
+        data["signup_username"] = fake.user_name() if data["signup_username"] else ""
+        #data["signup_username"] = fake.user_name()
+        data["signup_email_address"] = fake.email(domain="gmail.com") if data["signup_email_address"] else ""
+        #data["signup_email_address"] = fake.email(domain="outlook.com")
+        data["password"] = fake.password() if data["password"] else ""
+        #data["password"]  = fake.password()
+        data["first_name"] = fake.first_name_male() if data["first_name"] else ""
+        #data["first_name"] = fake.first_name_male()
+        data["last_name"] = fake.last_name() if data["last_name"] else ""
+        #data["last_name"] = fake.last_name()
+        data["mobile_number"] = fake.numerify(text="9#########") if data["mobile_number"] else ""
+
+        data["company"] = fake.company()
+        data["address_1"] = fake.street_address()if data["address_1"] else ""
+        #data["address_1"] = fake.street_address()
+        data["address_2"] = fake.street_name() + ", " + fake.city() if data["address_2"] else ""
+        #data["address_2"] = fake.street_name() + ", " + fake.city()
+        data["state_name"] = fake.state() if data["state_name"] else ""
+        #data["state_name"] = fake.state()
+        data["city_name"] = fake.city() if data["city_name"] else ""
+        #data["city_name"] = fake.city()
+        data["zip_code"] = fake.zipcode_in_state(state_abbr="MH") if data["zip_code"] else ""
+        #data["zip_code"] = fake.zipcode_in_state(state_abbr="MH")
+
         self.log_info(f"username: {data["signup_username"]}")
         self.log_info(f"signup_email_address: {data["signup_email_address"]}")
 
