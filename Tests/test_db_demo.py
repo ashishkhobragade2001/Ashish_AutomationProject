@@ -34,11 +34,4 @@ def test_demo_db_insert(logger):
         logger.info("Demo DB test passed successfully")
     finally:
         pass
-    # finally:
-    #     # Cleanup (important)
-    #     db.cursor.execute(
-    #         "DELETE FROM users WHERE email=%s",
-    #         (demo_data["signup_email_address"],)
-    #     )
-    #     db.connection.commit()
-    #     db.close()
+

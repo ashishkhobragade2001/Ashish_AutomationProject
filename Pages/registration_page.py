@@ -13,30 +13,20 @@ class RegistrationPage(BasePage):
 
     def new_user_signup(self, data: dict) -> None:
         # ------ for fake username an email address and others.
+        self.log_info(f"\n============ start Registration ==================")
         fake = Faker("en_IN")
         data["signup_username"] = fake.user_name() if data["signup_username"] else ""
-        #data["signup_username"] = fake.user_name()
         data["signup_email_address"] = fake.email(domain="gmail.com") if data["signup_email_address"] else ""
-        #data["signup_email_address"] = fake.email(domain="outlook.com")
         data["password"] = fake.password() if data["password"] else ""
-        #data["password"]  = fake.password()
         data["first_name"] = fake.first_name_male() if data["first_name"] else ""
-        #data["first_name"] = fake.first_name_male()
         data["last_name"] = fake.last_name() if data["last_name"] else ""
-        #data["last_name"] = fake.last_name()
         data["mobile_number"] = fake.numerify(text="9#########") if data["mobile_number"] else ""
-
         data["company"] = fake.company()
         data["address_1"] = fake.street_address()if data["address_1"] else ""
-        #data["address_1"] = fake.street_address()
         data["address_2"] = fake.street_name() + ", " + fake.city() if data["address_2"] else ""
-        #data["address_2"] = fake.street_name() + ", " + fake.city()
         data["state_name"] = fake.state() if data["state_name"] else ""
-        #data["state_name"] = fake.state()
         data["city_name"] = fake.city() if data["city_name"] else ""
-        #data["city_name"] = fake.city()
         data["zip_code"] = fake.zipcode_in_state(state_abbr="MH") if data["zip_code"] else ""
-        #data["zip_code"] = fake.zipcode_in_state(state_abbr="MH")
 
         self.log_info(f"username: {data["signup_username"]}")
         self.log_info(f"signup_email_address: {data["signup_email_address"]}")
@@ -49,22 +39,21 @@ class RegistrationPage(BasePage):
 
     def new_registration(self, data: dict) -> None:
         """
-        A new username and EMAIL_INPUT for new user login. Get the data from Excel file having the following attribute
+        A new username and email address for new user login. Get the data from Excel file having the following attribute
             signup_username: get username from faker module.
-            signup_email_address: get EMAIL_INPUT from faker module.
-            password: get password from excel
+            signup_email_address: get email from faker module.
+            password: get password from faker module.
             day: integer from 1 to 31
             month: month from January to December.
             year: get integer from excel file.
-            First_name:first USERNAME_INPUT of user.
-            last_name: last USERNAME_INPUT of user.
-            company: company USERNAME_INPUT of user.
+            First_name:first name of user.
+            last_name: last name of user.
+            company: company name of user.
             address_1: address of user having string max length 50.
             address_2: address of user having string max length 50.
-            address_3: address of user having string max length 50.
-            country_name: country USERNAME_INPUT of user.
-            state_name: state USERNAME_INPUT of user.
-            city_name: city USERNAME_INPUT of user.
+            country_name: country name of user.
+            state_name: state name of user.
+            city_name: city name of user.
             zip_code: zip code in integer having max length 6 digit.
             Mobile_number: 10 digit integer.
 
