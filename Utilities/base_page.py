@@ -85,9 +85,11 @@ class BasePage:
             element.clear()
             element.send_keys(value)
             self.log_info(f"Entered text: {value} in to element: {locator_name}")
-        except TimeoutException:
-            self.log_error(f"Failed to Enter text: {value} into locator: {locator_name}")
-            raise ElementActionException(f"unable to enter text into locator: {locator_name}")
+        except Exception as e:
+            self.log_error(f"fail to enter value: '{value}' into locator: '{locator_name}'")
+            self.log_error(f"Exception Type: {type(e).__name__}")
+            self.log_error(f"Exception Message: {e.msg}")
+            raise ElementActionException(f"unable to send value: '{value}' into locator: '{locator_name}' ")
 
     def get_text(self, locator, locator_name=""):
         """
