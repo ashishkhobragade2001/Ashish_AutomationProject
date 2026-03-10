@@ -20,3 +20,5 @@ def test_login(driver, logger, username, password, expected_result):
 
     actual_result = "success" if lp.is_login_successful() else "failure"
     assert actual_result == expected_result, f"Expected: {expected_result} but we got: {actual_result}"
+
+# update file for test scm polling
