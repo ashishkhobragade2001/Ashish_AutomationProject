@@ -1,14 +1,13 @@
 import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import os
 import base64
 import allure
 from datetime import datetime
 from pytest_html import extras
 from Utilities.logger import Logger
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-
 
 
 # 🌟 CREATE DYNAMIC REPORT FOLDER
@@ -33,10 +32,6 @@ def pytest_configure(config):
 
 
 # 🌟 DRIVER FIXTURE
-import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture
@@ -57,7 +52,7 @@ def driver():
     options.add_argument("--disable-blink-features=AutomationControlled")
 
     # useful for Jenkins.
-    options.add_argument("--headless=new")
+    # options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
@@ -71,7 +66,6 @@ def driver():
 
     yield driver
     driver.quit()
-
 
 
 # 🌟 LOGGER FIX
