@@ -3,9 +3,12 @@ import os
 import base64
 import allure
 from datetime import datetime
-from selenium import webdriver
 from pytest_html import extras
 from Utilities.logger import Logger
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 
 # 🌟 CREATE DYNAMIC REPORT FOLDER
@@ -30,15 +33,21 @@ def pytest_configure(config):
 
 
 # 🌟 DRIVER FIXTURE
+import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
-
     prefs = {
         "credentials_enable_service": False,
         "profile.password_manager_enabled": False,
         "profile.password_manager_leak_detection": False
     }
+
     options.add_experimental_option("prefs", prefs)
 
     options.add_argument("--disable-notifications")
@@ -47,11 +56,22 @@ def driver():
     options.add_argument("--disable-infobars")
     options.add_argument("--disable-blink-features=AutomationControlled")
 
-    driver = webdriver.Chrome(options=options)
+    # useful for Jenkins.
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=options
+    )
+
     driver.maximize_window()
     driver.get("https://automationexercise.com/")
+
     yield driver
     driver.quit()
+
 
 
 # 🌟 LOGGER FIX
