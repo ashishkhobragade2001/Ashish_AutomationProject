@@ -115,20 +115,21 @@ class BasePage:
 
         self._perform_action(action, locator_name)
 
-    def is_element_visible(self, locator, locator_name="") -> bool(str):
+    def is_element_visible_return_True_or_False(self, locator, locator_name="") -> bool(str):
+        try:
+            element = self.wait.until(EC.visibility_of_element_located(locator))
+            self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
+            return True
+        except (TimeoutException, NoSuchElementException):
+            self.log_error(f"Element: {locator_name} is NOT visible")
+            return False
+
+    def is_element_visible_Handle_try_except_Exception(self, locator, locator_name="") -> bool(str):
         def action():
             element = self.wait.until(EC.visibility_of_element_located(locator))
-            self.log_info(f"Element: '{element}' is visible on locator: '{locator_name}'")
+            self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
             return True
-
         self._perform_action(action, locator_name)
-        # try:
-        #     element = self.wait.until(EC.visibility_of_element_located(locator))
-        #     self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
-        #     return True
-        # except (TimeoutException, NoSuchElementException):
-        #     self.log_error(f"Element: {locator_name} is NOT visible")
-        #     return False
 
     def get_title(self):
         """
@@ -272,6 +273,7 @@ class BasePage:
                 element.click()
             elif action == "send_keys":
                 element.send_keys(value)
+
         self._perform_action(action)
         # try:
         #     element = self.driver.find_element(*locator)
@@ -292,10 +294,12 @@ class BasePage:
         :returns
             bool: True if alert appears, else False.
         """
+
         def action():
             self.logger.info("Waiting for alert to be present")
             WebDriverWait(self.driver, timeout).until(EC.alert_is_present())
             return True
+
         self._perform_action(action, locator_name)
         # try:
         #     self.logger.info("Waiting for alert to be present")
