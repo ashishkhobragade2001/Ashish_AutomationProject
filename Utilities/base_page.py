@@ -47,7 +47,7 @@ class BasePage:
         try:
             return action()
         except Exception as e:
-            self.log_error(f"Action failed on element: {locator_name}")
+            self.log_error(f"Action failed on element: '{locator_name}'")
             self.log_error(f"Exception: {type(e).__name__} - {e.msg}")
             self.take_screenshot(locator_name)
             raise
@@ -79,7 +79,7 @@ class BasePage:
         def action():
             element = self.wait.until(EC.element_to_be_clickable(locator))
             element.click()
-            self.log_info(f"clicked on element: {locator_name}")
+            self.log_info(f"clicked on element: '{locator_name}'")
 
         self._perform_action(action, locator_name)
 
@@ -94,7 +94,7 @@ class BasePage:
             element = self.wait.until(EC.visibility_of_element_located(locator))
             element.clear()
             element.send_keys(value)
-            self.log_info(f"Entered text: {value} in to element: {locator_name}")
+            self.log_info(f"Entered text: '{value}' in to element: '{locator_name}'")
 
         self._perform_action(action, locator_name)
 
@@ -110,7 +110,7 @@ class BasePage:
         def action():
             element = self.wait.until(EC.visibility_of_element_located(locator))
             text = element.text
-            self.log_info(f"capture text from: '{locator_name}' text: {text}")
+            self.log_info(f"capture text from: '{locator_name}' text: '{text}'")
             return text
 
         self._perform_action(action, locator_name)
@@ -118,7 +118,7 @@ class BasePage:
     def is_element_visible(self, locator, locator_name="") -> bool(str):
         def action():
             element = self.wait.until(EC.visibility_of_element_located(locator))
-            self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
+            self.log_info(f"Element: '{element}' is visible on locator: '{locator_name}'")
             return True
 
         self._perform_action(action, locator_name)
