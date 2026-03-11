@@ -21,7 +21,6 @@ class ProductPage(BasePage):
     def login_to_webpage(self, username: str, password: str) -> None:
         """
         Logs into the application using valid credentials.
-
         :argument
             username(str): User username
             password(str): User password

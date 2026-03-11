@@ -41,7 +41,16 @@ class BasePage:
         """
         self.driver = driver
         self.logger = logger
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, 14)
+
+    def _perform_action(self, action, locator_name=""):
+        try:
+            return action()
+        except Exception as e:
+            self.log_error(f"Action failed on element: {locator_name}")
+            self.log_error(f"Exception: {type(e).__name__} - {e.msg}")
+            self.take_screenshot(locator_name)
+            raise
 
         # ---------- LOGGER WRAPPER METHODS ----------
 
@@ -66,13 +75,13 @@ class BasePage:
         :argument
             locator (tuple): Locator strategy in format (By, value).
         """
-        try:
+
+        def action():
             element = self.wait.until(EC.element_to_be_clickable(locator))
             element.click()
             self.log_info(f"clicked on element: {locator_name}")
-        except TimeoutException:
-            self.log_error(f"fail to click on element: {locator_name}")
-            raise ElementActionException(f"unable to click on element: {locator_name}")
+
+        self._perform_action(action, locator_name)
 
     def send_keys(self, locator, value, locator_name=""):
         """
@@ -80,16 +89,14 @@ class BasePage:
         :argument
             locator (tuple): Locator strategy in format (By, value).
         """
-        try:
+
+        def action():
             element = self.wait.until(EC.visibility_of_element_located(locator))
             element.clear()
             element.send_keys(value)
             self.log_info(f"Entered text: {value} in to element: {locator_name}")
-        except Exception as e:
-            self.log_error(f"fail to enter value: '{value}' into locator: '{locator_name}'")
-            self.log_error(f"Exception Type: {type(e).__name__}")
-            self.log_error(f"Exception Message: {e.msg}")
-            raise ElementActionException(f"unable to send value: '{value}' into locator: '{locator_name}' ")
+
+        self._perform_action(action, locator_name)
 
     def get_text(self, locator, locator_name=""):
         """
@@ -99,23 +106,29 @@ class BasePage:
         :returns
             str: Text of the element.
         """
-        try:
+
+        def action():
             element = self.wait.until(EC.visibility_of_element_located(locator))
             text = element.text
             self.log_info(f"capture text from: '{locator_name}' text: {text}")
             return text
-        except TimeoutException:
-            self.log_error(f"failed to get text from locator: '{locator_name}'")
-            raise ElementActionException(f"unable to get text from locator: '{locator_name}'")
 
-    def is_element_visible(self, locator, locator_name="") -> bool:
-        try:
+        self._perform_action(action, locator_name)
+
+    def is_element_visible(self, locator, locator_name="") -> bool(str):
+        def action():
             element = self.wait.until(EC.visibility_of_element_located(locator))
             self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
             return True
-        except (TimeoutException, NoSuchElementException):
-            self.log_error(f"Element: {locator_name} is NOT visible")
-            return False
+
+        self._perform_action(action, locator_name)
+        # try:
+        #     element = self.wait.until(EC.visibility_of_element_located(locator))
+        #     self.log_info(f"Element: '{element}' is visible on locator: {locator_name}")
+        #     return True
+        # except (TimeoutException, NoSuchElementException):
+        #     self.log_error(f"Element: {locator_name} is NOT visible")
+        #     return False
 
     def get_title(self):
         """
@@ -133,15 +146,24 @@ class BasePage:
             text (str): Visible text to select.
             locator_name(str): locator name of an element.
         """
-        try:
+
+        def action():
             self.log_info(f"selecting text: {text} from dropdown locator: '{locator_name}'")
             element = self.wait.until(EC.presence_of_element_located(locator))
             select = Select(element)
             select.select_by_visible_text(str(text))
             self.log_info(f"Successfully selected text: {text} from dropdown locator: '{locator_name}'")
-        except (TimeoutException, NoSuchElementException):
-            self.log_error(f"Failed to select text: {text} from locator: {locator_name}")
-            raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with text: {text}")
+
+        self._perform_action(action, locator_name)
+        # try:
+        #     self.log_info(f"selecting text: {text} from dropdown locator: '{locator_name}'")
+        #     element = self.wait.until(EC.presence_of_element_located(locator))
+        #     select = Select(element)
+        #     select.select_by_visible_text(str(text))
+        #     self.log_info(f"Successfully selected text: {text} from dropdown locator: '{locator_name}'")
+        # except (TimeoutException, NoSuchElementException):
+        #     self.log_error(f"Failed to select text: {text} from locator: {locator_name}")
+        #     raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with text: {text}")
 
     def select_by_value(self, locator, value, locator_name=""):
         """
@@ -151,30 +173,50 @@ class BasePage:
             value (str): Visible text to select.
             locator_name(str): locator name of an element.
         """
-        try:
+
+        def action():
             self.log_info(f"selecting value: {value} from dropdown locator: '{locator_name}'")
             element = self.wait.until(EC.presence_of_element_located(locator))
             select = Select(element)
             select.select_by_value(str(value))
             self.log_info(f"Successfully selected value: {value} from dropdown locator: '{locator_name}'")
-        except (TimeoutException, NoSuchElementException):
-            self.log_error(f"Failed to select value: {value} from locator: {locator_name}")
-            raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with Value: {value}")
+
+        self._perform_action(action, locator_name)
+        # try:
+        #     self.log_info(f"selecting value: {value} from dropdown locator: '{locator_name}'")
+        #     element = self.wait.until(EC.presence_of_element_located(locator))
+        #     select = Select(element)
+        #     select.select_by_value(str(value))
+        #     self.log_info(f"Successfully selected value: {value} from dropdown locator: '{locator_name}'")
+        # except (TimeoutException, NoSuchElementException):
+        #     self.log_error(f"Failed to select value: {value} from locator: {locator_name}")
+        #     raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with Value: {value}")
 
     def select_by_index(self, locator, index, locator_name=""):
-        try:
+        def action():
             self.log_info(f"selecting index: {index} from dropdown locator: '{locator_name}'")
             element = self.wait.until(EC.presence_of_element_located(locator))
             select = Select(element)
             select.select_by_index(int(index))
             self.log_info(f"Successfully selected index: {index} from dropdown locator: '{locator_name}'")
-        except (TimeoutException, NoSuchElementException):
-            self.log_error(f"Failed to select index: {index} from locator: {locator_name}")
-            raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with index: {index}")
+
+        self._perform_action(action, locator_name)
+        # try:
+        #     self.log_info(f"selecting index: {index} from dropdown locator: '{locator_name}'")
+        #     element = self.wait.until(EC.presence_of_element_located(locator))
+        #     select = Select(element)
+        #     select.select_by_index(int(index))
+        #     self.log_info(f"Successfully selected index: {index} from dropdown locator: '{locator_name}'")
+        # except (TimeoutException, NoSuchElementException):
+        #     self.log_error(f"Failed to select index: {index} from locator: {locator_name}")
+        #     raise ElementActionException(f"Dropdown selection failed for '{locator_name}' with index: {index}")
 
     def wait_visible(self, locator, locator_name=""):
-        self.log_info(f"wait until element not visible: {locator_name} ")
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        def action():
+            self.log_info(f"wait until element not visible: {locator_name} ")
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+
+        self._perform_action(action, locator_name)
 
     def take_screenshot(self, name):
         """
@@ -182,13 +224,20 @@ class BasePage:
         :argument:
             name (str): Screenshot file base name.
          """
+
         path = f"Screenshots/{name}_{int(time.time())}.png"
-        try:
+
+        def action():
             self.driver.save_screenshot(path)
             self.log_info(f"take a screenshot and save to: {path}")
-        except Exception as e:
-            self.log_error(f"Failed to capture screenshot")
-            raise ElementActionException(f"screenshot capture failed")
+
+        self._perform_action(action, locator_name=name)
+        # try:
+        #     self.driver.save_screenshot(path)
+        #     self.log_info(f"take a screenshot and save to: {path}")
+        # except Exception as e:
+        #     self.log_error(f"Failed to capture screenshot")
+        #     raise ElementActionException(f"screenshot capture failed")
 
     def switch_to_new_window(self):
         parent = self.driver.current_window_handle
@@ -202,27 +251,40 @@ class BasePage:
         self.log_info(f"switch to parent window")
 
     def scroll_to_element(self, locator, locator_name=""):
-        self.log_info(f"move to element: {locator_name}")
-        element = self.driver.find_element(*locator)
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        def action():
+            element = self.driver.find_element(*locator)
+            self.driver.execute_script("arguments[0].scrollIntoView();", element)
+            self.log_info(f"moved to element: {locator_name}")
+
+        self._perform_action(action, locator_name)
 
     def wait_clickable(self, locator, locator_name=""):
-        self.log_info(f"wait until element not clickable: {locator_name}")
-        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator))
+        def action():
+            self.log_info(f"wait until element not clickable: {locator_name}")
+            WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator))
+
+        self._perform_action(action, locator_name)
 
     def safe_action(self, action_name, locator, action, value=None):
-        try:
+        def action():
             element = self.driver.find_element(*locator)
             if action == "click":
                 element.click()
             elif action == "send_keys":
                 element.send_keys(value)
+        self._perform_action(action)
+        # try:
+        #     element = self.driver.find_element(*locator)
+        #     if action == "click":
+        #         element.click()
+        #     elif action == "send_keys":
+        #         element.send_keys(value)
+        #
+        # except Exception as e:
+        #     self.take_screenshot(action_name)
+        #     raise
 
-        except Exception as e:
-            self.take_screenshot(action_name)
-            raise
-
-    def wait_for_alert(self, timeout=5):
+    def wait_for_alert(self, timeout=5, locator_name="Alerts"):
         """
         waits for alert popup to appear.
         :argument
@@ -230,13 +292,18 @@ class BasePage:
         :returns
             bool: True if alert appears, else False.
         """
-        self.logger.info("Waiting for alert to be present")
-        try:
+        def action():
+            self.logger.info("Waiting for alert to be present")
             WebDriverWait(self.driver, timeout).until(EC.alert_is_present())
             return True
-        except TimeoutException:
-            self.logger.error("Alert did not appear")
-            return False
+        self._perform_action(action, locator_name)
+        # try:
+        #     self.logger.info("Waiting for alert to be present")
+        #     WebDriverWait(self.driver, timeout).until(EC.alert_is_present())
+        #     return True
+        # except TimeoutException:
+        #     self.logger.error("Alert did not appear")
+        #     return False
 
     def close_google_vignette_ad(self, timeout=2):
         """Universal Google ad killer – never fails test"""

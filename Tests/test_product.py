@@ -38,12 +38,11 @@ class TestProducts:
         User should be able to complete the purchase flow without errors.
         """
 
-        logger.info("\nStarting test: Product Add To Cart")
-
+        logger.info("\n----------------- Start Test: Product Add To Cart --------------------")
         product_page = ProductPage(driver, logger)
         product_page.login_to_webpage(
-            username="ashish@outlook.com",
-            password="ashish123"
+            username="khobragade99@gmail.com",
+            password="Ashish@007"
         )
         product_page.login_verification()
         product_page.select_products()
@@ -54,8 +53,6 @@ class TestProducts:
             expiry_month=12,
             expiry_year=2032
         )
-
         logger.info("Verifying order confirmation")
         product_page.order_verification()
-
-        logger.info("Test completed successfully")
+        logger.info("\n--------------------Test completed successfully------------------------")
