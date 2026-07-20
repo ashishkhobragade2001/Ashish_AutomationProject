@@ -266,7 +266,7 @@ class BasePage:
 
         self._perform_action(action, locator_name)
 
-    def safe_action(self, action_name, locator, action, value=None):
+    def safe_action(self, locator, action, value=None):
         def action():
             element = self.driver.find_element(*locator)
             if action == "click":

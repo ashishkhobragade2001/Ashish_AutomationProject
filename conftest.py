@@ -75,7 +75,7 @@ def logger(request):
     return log
 
 
-# 📸 SCREENSHOT + ATTACH IN HTML
+# 📸 SCREENSHOT + ATTACH IN ALLURE
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -125,6 +125,3 @@ def pytest_html_results_table_header(cells):
 def pytest_html_results_table_row(report, cells):
     cells.insert(2, f'<td>{getattr(report, "description", "")}</td>')
 
-
-def demo():
-    pass
